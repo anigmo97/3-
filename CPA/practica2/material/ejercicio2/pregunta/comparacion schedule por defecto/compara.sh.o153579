@@ -1,0 +1,48 @@
+
+
+
+------------------------------------------------------------------------- 
+Tiempo en realizar el bucle principal en paralelo 
+(primer bucle paralelizado)(con 8 hilos)) 
+ = 8.975753 segs 
+------------------------------------------------------------------------- 
+
+
+Los 10 enteros con más divisores hasta 100000 son:
+ 83160, con 128 divisores
+ 98280, con 128 divisores
+ 55440, con 120 divisores
+ 65520, con 120 divisores
+ 75600, con 120 divisores
+ 85680, con 120 divisores
+ 90720, con 120 divisores
+ 92400, con 120 divisores
+ 95760, con 120 divisores
+ 60480, con 112 divisores
+
+
+
+
+
+
+------------------------------------------------------------------------- 
+Tiempo en realizar el bucle principal en paralelo 
+ (segundo bucle paralelizado )(con 8 hilos) 
+ = 6.583008 segs 
+------------------------------------------------------------------------- 
+
+
+Los 10 enteros con más divisores hasta 100000 son:
+ 83160, con 128 divisores
+ 98280, con 128 divisores
+ 55440, con 120 divisores
+ 65520, con 120 divisores
+ 75600, con 120 divisores
+ 85680, con 120 divisores
+ 90720, con 120 divisores
+ 92400, con 120 divisores
+ 95760, con 120 divisores
+ 60480, con 112 divisores
+
+
+

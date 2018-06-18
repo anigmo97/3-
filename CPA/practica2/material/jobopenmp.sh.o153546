@@ -1,0 +1,31 @@
+soy el hilo 3 y he encontrado 313259 divisores 
+soy el hilo 0 y he encontrado 257036 divisores 
+soy el hilo 1 y he encontrado 291689 divisores 
+soy el hilo 2 y he encontrado 304766 divisores 
+
+
+
+------------------------------------------------------------------------- 
+Tiempo en realizar el bucle principal en paralelo (primer bucle paralelizado ) 
+ = 17.559813 segs 
+------------------------------------------------------------------------- 
+
+
+Los 10 enteros con más divisores hasta 100000 son:
+ 83160, con 128 divisores
+ 98280, con 128 divisores
+ 55440, con 120 divisores
+ 65520, con 120 divisores
+ 75600, con 120 divisores
+ 85680, con 120 divisores
+ 90720, con 120 divisores
+ 92400, con 120 divisores
+ 95760, con 120 divisores
+ 60480, con 112 divisores
+
+
+
+soy el hilo 4196128 y he encontrado 0 divisores 
+soy el hilo 4196128 y he encontrado 0 divisores 
+soy el hilo 4196128 y he encontrado 0 divisores 
+soy el hilo 4196128 y he encontrado 0 divisores 

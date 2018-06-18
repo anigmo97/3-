@@ -1,0 +1,8 @@
+Bucle 1 paralelizado con schedule 2 (CHUNK =1 ) y 8 Hilos 9.545622 Segundos 
+Bucle 2 paralelizado con schedule 2 (CHUNK =1 ) y 8 Hilos 5.797052 Segundos 
+Bucle 1 paralelizado con schedule 1 (CHUNK =2 ) y 8 Hilos 9.574417 Segundos 
+Bucle 2 paralelizado con schedule 1 (CHUNK =2 ) y 8 Hilos 5.734066 Segundos 
+Bucle 1 paralelizado con schedule 1 (CHUNK =4 ) y 8 Hilos 9.727281 Segundos 
+Bucle 2 paralelizado con schedule 1 (CHUNK =4 ) y 8 Hilos 6.229296 Segundos 
+Bucle 1 paralelizado con schedule 2 (CHUNK =1 ) y 8 Hilos 9.593072 Segundos 
+Bucle 2 paralelizado con schedule 2 (CHUNK =1 ) y 8 Hilos 6.260745 Segundos 
