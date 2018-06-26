@@ -1,0 +1,462 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.2' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     16974,        454]
+NotebookOptionsPosition[     15440,        423]
+NotebookOutlinePosition[     15789,        438]
+CellTagsIndexPosition[     15746,        435]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[StyleBox["PR\[CapitalAAcute]CTICA  1", "Title",
+ FontSize->36,
+ FontVariations->{"Underline"->True},
+ FontColor->RGBColor[1, 0, 0]]], "Input",
+ CellChangeTimes->{{3.7287977856471186`*^9, 3.7287977958347034`*^9}, {
+  3.728797832194252*^9, 3.728797857069454*^9}, {3.728798179217099*^9, 
+  3.7287981903997927`*^9}},ExpressionUUID->"cb636452-c350-4aec-ab27-\
+5924cb681e72"],
+
+Cell["AUTOR : \[CapitalAAcute]NGEL IGUALADA MORAGA", "Program",
+ CellChangeTimes->{{3.7289746565663476`*^9, 3.728974682800871*^9}},
+ FontSize->16,ExpressionUUID->"681eea81-e0e0-4966-8688-0d450acee554"],
+
+Cell["\<\
+* IMPORTANTE *
+
+EN TODAS LAS COMPROBACIONES SE USAR\[CapitalAAcute] UN MODULO AUXILIAR PARA \
+MOSTRAR LAS GRAMATICAS.
+PARA USARLO, EJECUTE EL ARCHIVO   dibuja.nb (compruebe que se ha ejecutado su \
+comando save) Y TRAS ESTO EJECUTE EL COMANDO SIGUIENTE:\
+\>", "Text",
+ CellChangeTimes->{{3.728974731707409*^9, 
+  3.728974965536854*^9}},ExpressionUUID->"f9630ae2-c4a1-44cd-a230-\
+9270086b8cf4"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Get", "[", "\"\<dibujaGramatica\>\"", "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.728975002693203*^9, 3.7289750181464205`*^9}},
+ Background->RGBColor[
+  1, 1, 0],ExpressionUUID->"eaa87f9d-60be-4c8a-855e-18ce9b5dca90"],
+
+Cell["\<\
+PARA USARLO ES RECOMENDABLE USAR QUIET. 
+EJEMPLO :  Quiet[dibujaGramatica[GramaticaEj1]]\
+\>", "Text",
+ CellChangeTimes->{{3.7289752194132032`*^9, 3.728975251819566*^9}, {
+  3.7289753192418184`*^9, 
+  3.728975329335641*^9}},ExpressionUUID->"daef3b1b-697c-4da4-8cbc-\
+c1697bf7010a"],
+
+Cell[CellGroupData[{
+
+Cell["ALGORITMO CYK", "Section",
+ CellChangeTimes->{{3.7289778767552156`*^9, 
+  3.728977882739659*^9}},ExpressionUUID->"ac728e17-0d2d-4122-ac1e-\
+3edc8c100af2"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"CYK", "::", "argerr"}], "=", 
+   "\"\<La palabra contiene simbolos que no pertenecen a los terminales de la \
+gram\[AAcute]tica -> `1` \>\""}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"CYK", "[", 
+   RowBox[{"G1_List", ",", "palabra_List"}], "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{
+     "regla", ",", "matriz", ",", "letra", ",", 
+      "caracteresQueProducenElPrefijo", ",", "caracteresQueProducenElSufijo", 
+      ",", "antecedentes"}], "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"If", "[", 
+      RowBox[{
+       RowBox[{"!", 
+        RowBox[{"ContainsAll", "[", 
+         RowBox[{
+          RowBox[{"G1", "[", 
+           RowBox[{"[", "2", "]"}], "]"}], ",", "palabra"}], "]"}]}], ",", 
+       RowBox[{
+        RowBox[{"Return", "  ", 
+         RowBox[{"Message", "[", 
+          RowBox[{
+           RowBox[{"CYK", "::", "argerr"}], ",", 
+           RowBox[{"Complement", "[", 
+            RowBox[{"palabra", ",", 
+             RowBox[{"G1", "[", 
+              RowBox[{"[", "2", "]"}], "]"}]}], "]"}]}], "]"}]}], ";", 
+        RowBox[{"Return", "[", "False", "]"}]}]}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"matriz", "=", 
+      RowBox[{"SparseArray", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"{", 
+           RowBox[{"fila_", ",", "col_"}], "}"}], "/;", 
+          RowBox[{
+           RowBox[{"col", "+", "fila"}], " ", ">", 
+           RowBox[{
+            RowBox[{"Length", "[", "palabra", "]"}], "+", "1"}]}]}], 
+         "\[Rule]", "Null"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+          RowBox[{"Length", "[", "palabra", "]"}], ",", 
+          RowBox[{"Length", "[", "palabra", "]"}]}], "}"}]}], "]"}]}], 
+     RowBox[{"(*", 
+      RowBox[{"//", "MatrixForm"}], "*)"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"matriz", "=", 
+      RowBox[{"Normal", "[", "matriz", "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{
+       RowBox[{"PRIMERA", " ", "PARTE", " ", "i"}], " ", "=", "1"}], "  ", 
+      "*)"}], "\[IndentingNewLine]", 
+     RowBox[{"For", "[", 
+      RowBox[{
+       RowBox[{"i", "=", "1"}], ",", 
+       RowBox[{"i", "<=", 
+        RowBox[{"Length", "[", "palabra", "]"}]}], ",", 
+       RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"letra", "=", 
+         RowBox[{"palabra", "[", 
+          RowBox[{"[", "i", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"matriz", "[", 
+           RowBox[{"[", "1", "]"}], "]"}], "[", 
+          RowBox[{"[", "i", "]"}], "]"}], "=", 
+         RowBox[{"Flatten", "[", 
+          RowBox[{"Cases", "[", 
+           RowBox[{
+            RowBox[{"G1", "[", 
+             RowBox[{"[", "3", "]"}], "]"}], ",", 
+            RowBox[{
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"z_", ",", "y_List"}], "}"}], "/;", " ", 
+              RowBox[{
+               RowBox[{"Cases", "[", 
+                RowBox[{"y", ",", 
+                 RowBox[{"{", "letra", "}"}]}], "]"}], "=!=", 
+               RowBox[{"{", "}"}]}]}], "\[Rule]", " ", "z"}]}], "]"}], 
+          "]"}]}], ";"}]}], "\[IndentingNewLine]", "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{"FIN", " ", "PRIMERA", " ", "PARTE"}], " ", "*)"}], 
+     "\[IndentingNewLine]", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{"INICIO", " ", "SEGUNDA", " ", "PARTE"}], " ", "*)"}], 
+     "\[IndentingNewLine]", 
+     RowBox[{"For", "[", 
+      RowBox[{
+       RowBox[{"j", "=", "2"}], ",", 
+       RowBox[{"j", "<=", 
+        RowBox[{"Length", "[", "palabra", "]"}]}], ",", 
+       RowBox[{"j", "++"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"For", "[", 
+         RowBox[{
+          RowBox[{"i", "=", "1"}], ",", 
+          RowBox[{"i", "\[LessEqual]", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"Length", "[", "palabra", "]"}], "-", "j", "+", "1"}], 
+            ")"}]}], ",", 
+          RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             RowBox[{"matriz", "[", 
+              RowBox[{"[", "j", "]"}], "]"}], "[", 
+             RowBox[{"[", "i", "]"}], "]"}], "=", 
+            RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+           RowBox[{"For", "[", 
+            RowBox[{
+             RowBox[{"k", "=", "1"}], ",", 
+             RowBox[{"k", "<=", " ", 
+              RowBox[{"j", "-", "1"}]}], ",", 
+             RowBox[{"k", "++"}], ",", "\[IndentingNewLine]", 
+             RowBox[{
+              RowBox[{"caracteresQueProducenElPrefijo", " ", "=", 
+               RowBox[{"matriz", "[", 
+                RowBox[{"[", 
+                 RowBox[{"k", ",", "i"}], "]"}], "]"}]}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{"caracteresQueProducenElSufijo", " ", "=", 
+               RowBox[{
+                RowBox[{"matriz", "[", 
+                 RowBox[{"[", 
+                  RowBox[{"j", "-", "k"}], "]"}], "]"}], "[", 
+                RowBox[{"[", 
+                 RowBox[{"i", "+", "k"}], "]"}], "]"}]}], ";", 
+              "\[IndentingNewLine]", 
+              RowBox[{"antecedentes", "=", 
+               RowBox[{"Flatten", "[", 
+                RowBox[{"Cases", "[", 
+                 RowBox[{
+                  RowBox[{"G1", "[", 
+                   RowBox[{"[", "3", "]"}], "]"}], ",", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"z_", ",", "y_List"}], "}"}], "/;", 
+                    RowBox[{
+                    RowBox[{"!", 
+                    RowBox[{"MemberQ", "[", 
+                    RowBox[{
+                    RowBox[{
+                    RowBox[{"matriz", "[", 
+                    RowBox[{"[", "j", "]"}], "]"}], "[", 
+                    RowBox[{"[", "i", "]"}], "]"}], ",", 
+                    RowBox[{"z", "[", 
+                    RowBox[{"[", "1", "]"}], "]"}]}], "]"}]}], "&&", 
+                    RowBox[{
+                    RowBox[{"Cases", "[", 
+                    RowBox[{"y", ",", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"y1_", ",", "y2_"}], "}"}], "/;", 
+                    RowBox[{
+                    RowBox[{"MemberQ", "[", 
+                    RowBox[{"caracteresQueProducenElPrefijo", ",", "y1"}], 
+                    "]"}], "&&", "\[IndentingNewLine]", " ", 
+                    RowBox[{"MemberQ", "[", 
+                    RowBox[{"caracteresQueProducenElSufijo", ",", "y2"}], 
+                    "]"}]}]}]}], "]"}], "=!=", 
+                    RowBox[{"{", "}"}]}]}]}], "\[Rule]", " ", "z"}]}], "]"}], 
+                "]"}]}], ";", "\[IndentingNewLine]", 
+              RowBox[{"If", "[", 
+               RowBox[{
+                RowBox[{"antecedentes", "=!=", 
+                 RowBox[{"{", "}"}]}], ",", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"matriz", "[", 
+                   RowBox[{"[", "j", "]"}], "]"}], "[", 
+                  RowBox[{"[", "i", "]"}], "]"}], "=", 
+                 RowBox[{"Join", "[", 
+                  RowBox[{
+                   RowBox[{
+                    RowBox[{"matriz", "[", 
+                    RowBox[{"[", "j", "]"}], "]"}], "[", 
+                    RowBox[{"[", "i", "]"}], "]"}], ",", "antecedentes"}], 
+                  "]"}]}]}], "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], 
+           ";"}]}], "\[IndentingNewLine]", "]"}], ";"}]}], 
+      "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+     RowBox[{"(*", 
+      RowBox[{"FIN", " ", "SEGUNDA", " ", "PARTE"}], " ", "*)"}], 
+     "\[IndentingNewLine]", 
+     RowBox[{"Print", "[", 
+      RowBox[{"matriz", "//", "MatrixForm"}], "]"}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"MemberQ", "[", 
+      RowBox[{
+       RowBox[{"matriz", "[", 
+        RowBox[{"[", 
+         RowBox[{
+          RowBox[{"Length", "[", "palabra", "]"}], ",", "1"}], "]"}], "]"}], 
+       ",", 
+       RowBox[{"G1", "[", 
+        RowBox[{"[", "4", "]"}], "]"}]}], "]"}]}]}], "\[IndentingNewLine]", 
+   "]"}]}]}], "Input",
+ CellChangeTimes->{
+  3.7289779064585915`*^9, {3.7289780549749393`*^9, 3.7289780702562923`*^9}, {
+   3.728978605352826*^9, 3.728978606040334*^9}},
+ Background->RGBColor[
+  0.94, 0.88, 0.94],ExpressionUUID->"c2377d2c-0378-4b18-8247-b27344469197"],
+
+Cell[CellGroupData[{
+
+Cell["Comprobaci\[OAcute]n", "Subsection",
+ CellChangeTimes->{{3.728977970208894*^9, 
+  3.7289779770527315`*^9}},ExpressionUUID->"6c282901-922a-423c-85ab-\
+c4ad8f8eb4d8"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"GramaticaCYK", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"S", ",", "A", ",", "B", ",", "C"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"a", ",", "b", ",", "c"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", "S", "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"A", ",", "B"}], "}"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"B", ",", "C"}], "}"}]}], "}"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", "A", "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"B", ",", "A"}], "}"}], ",", 
+           RowBox[{"{", "a", "}"}]}], "}"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", "B", "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"C", ",", "C"}], "}"}], ",", 
+           RowBox[{"{", "b", "}"}]}], "}"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"{", "C", "}"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{"A", ",", "B"}], "}"}], ",", 
+           RowBox[{"{", "a", "}"}]}], "}"}]}], "}"}]}], "}"}], ",", "S"}], 
+    "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.728978011412248*^9, 3.728978037006173*^9}, {
+  3.7289785397275906`*^9, 3.7289785449776273`*^9}},
+ Background->RGBColor[
+  0.94, 0.91, 0.88],ExpressionUUID->"a86f8c9b-6c94-4012-94f6-652fb699fe8f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"Quiet", "[", 
+  RowBox[{"dibujaGramatica", "[", "GramaticaCYK", "]"}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"CYK", "[", 
+  RowBox[{"GramaticaFNC1", ",", 
+   RowBox[{"{", 
+    RowBox[{"b", ",", "a", ",", "a", ",", "b", ",", "a"}], "}"}]}], 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.7289781023971043`*^9, 3.7289781529442186`*^9}, {
+  3.7289785490556917`*^9, 3.7289785499630527`*^9}},
+ Background->RGBColor[
+  0.94, 0.88, 0.94],ExpressionUUID->"1eff672a-8b73-4db6-a156-71daf48afe02"],
+
+Cell[BoxData["\<\"simbolos iniciales = S A B C\\nsimbolos terminales = a b \
+c\\n\\n\\n    S \[LongRightArrow]  AB | BC\\n    A \[LongRightArrow]  BA | \
+a\\n    B \[LongRightArrow]  CC | b\\n    C \[LongRightArrow]  AB | \
+a\\n\"\>"], "Output",
+ CellChangeTimes->{{3.728978163819256*^9, 3.7289781998038864`*^9}, {
+   3.7289785558994255`*^9, 3.7289785774933023`*^9}, 
+   3.728978623274796*^9},ExpressionUUID->"1b05afe1-2a04-4013-b895-\
+2fcf601ba82d"],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {
+      RowBox[{"{", "B", "}"}], 
+      RowBox[{"{", 
+       RowBox[{"A", ",", "C"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"A", ",", "C"}], "}"}], 
+      RowBox[{"{", "B", "}"}], 
+      RowBox[{"{", 
+       RowBox[{"A", ",", "C"}], "}"}]},
+     {
+      RowBox[{"{", 
+       RowBox[{"S", ",", "A"}], "}"}], 
+      RowBox[{"{", "B", "}"}], 
+      RowBox[{"{", 
+       RowBox[{"S", ",", "C"}], "}"}], 
+      RowBox[{"{", 
+       RowBox[{"S", ",", "A"}], "}"}], "Null"},
+     {
+      RowBox[{"{", "}"}], 
+      RowBox[{"{", "B", "}"}], 
+      RowBox[{"{", "B", "}"}], "Null", "Null"},
+     {
+      RowBox[{"{", "}"}], 
+      RowBox[{"{", 
+       RowBox[{"S", ",", "C", ",", "A"}], "}"}], "Null", "Null", "Null"},
+     {
+      RowBox[{"{", 
+       RowBox[{"S", ",", "A", ",", "C"}], "}"}], "Null", "Null", "Null", 
+      "Null"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Print",
+ CellChangeTimes->{{3.728978171803696*^9, 3.7289781998195586`*^9}, {
+   3.728978555915042*^9, 3.7289785774933023`*^9}, 
+   3.728978623274796*^9},ExpressionUUID->"6dd03d2d-06a8-4816-8343-\
+66194b7553ac"],
+
+Cell[BoxData["True"], "Output",
+ CellChangeTimes->{{3.728978163819256*^9, 3.7289781998038864`*^9}, {
+   3.7289785558994255`*^9, 3.7289785774933023`*^9}, 
+   3.728978623274796*^9},ExpressionUUID->"faed7bef-51fe-41a0-9923-\
+b33c3bf123c9"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{1366, 685},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+FrontEndVersion->"11.2 para Microsoft Windows (64-bit) (September 10, 2017)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 383, 7, 58, "Input",ExpressionUUID->"cb636452-c350-4aec-ab27-5924cb681e72"],
+Cell[944, 29, 201, 2, 53, "Program",ExpressionUUID->"681eea81-e0e0-4966-8688-0d450acee554"],
+Cell[1148, 33, 403, 10, 100, "Text",ExpressionUUID->"f9630ae2-c4a1-44cd-a230-9270086b8cf4"],
+Cell[1554, 45, 254, 5, 61, "Input",ExpressionUUID->"eaa87f9d-60be-4c8a-855e-18ce9b5dca90"],
+Cell[1811, 52, 291, 7, 56, "Text",ExpressionUUID->"daef3b1b-697c-4da4-8cbc-c1697bf7010a"],
+Cell[CellGroupData[{
+Cell[2127, 63, 160, 3, 67, "Section",ExpressionUUID->"ac728e17-0d2d-4122-ac1e-3edc8c100af2"],
+Cell[2290, 68, 8499, 212, 829, "Input",ExpressionUUID->"c2377d2c-0378-4b18-8247-b27344469197"],
+Cell[CellGroupData[{
+Cell[10814, 284, 170, 3, 53, "Subsection",ExpressionUUID->"6c282901-922a-423c-85ab-c4ad8f8eb4d8"],
+Cell[10987, 289, 1592, 48, 61, "Input",ExpressionUUID->"a86f8c9b-6c94-4012-94f6-652fb699fe8f"],
+Cell[CellGroupData[{
+Cell[12604, 341, 512, 12, 82, "Input",ExpressionUUID->"1eff672a-8b73-4db6-a156-71daf48afe02"],
+Cell[13119, 355, 450, 7, 185, "Output",ExpressionUUID->"1b05afe1-2a04-4013-b895-2fcf601ba82d"],
+Cell[13572, 364, 1589, 48, 80, "Print",ExpressionUUID->"6dd03d2d-06a8-4816-8343-66194b7553ac"],
+Cell[15164, 414, 236, 4, 32, "Output",ExpressionUUID->"faed7bef-51fe-41a0-9923-b33c3bf123c9"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
