@@ -1,0 +1,928 @@
+Terminales no usados en la gramática
+
+   REG_FP
+
+
+Gramática
+
+    0 $accept: r_inicio $end
+
+    1 $@1: %empty
+
+    2 r_inicio: LABEL $@1 r_linea_ensamblador
+    3         | r_linea_ensamblador
+
+    4 $@2: %empty
+
+    5 r_linea_ensamblador: r_directiva NL $@2 r_inicio
+
+    6 $@3: %empty
+
+    7 r_linea_ensamblador: r_instruccion NL $@3 r_inicio
+    8                    | NL r_inicio
+    9                    | r_directiva
+   10                    | r_instruccion
+   11                    | %empty
+
+   12 r_directiva: DE_DATA
+   13            | DE_TEXT
+
+   14 $@4: %empty
+
+   15 r_directiva: DE_DWORD $@4 r_lista_enteros
+
+   16 $@5: %empty
+
+   17 r_directiva: DE_DOUBLE $@5 r_lista_reales
+   18            | DE_SPACE T_INT_LIT
+   19            | DE_IREG r_valores_enteros
+
+   20 $@6: %empty
+
+   21 r_lista_enteros: T_INT_LIT $@6 r_lista_enteros_cont
+
+   22 r_lista_enteros_cont: ',' r_lista_enteros
+   23                     | %empty
+
+   24 $@7: %empty
+
+   25 r_lista_reales: T_FP_LIT $@7 r_lista_reales_cont
+
+   26 $@8: %empty
+
+   27 r_lista_reales: T_INT_LIT $@8 r_lista_reales_cont
+
+   28 r_lista_reales_cont: ',' r_lista_reales
+   29                    | %empty
+
+   30 $@9: %empty
+
+   31 r_valores_enteros: T_INT_LIT $@9 r_valores_enteros_cont
+
+   32 r_valores_enteros_cont: ',' r_valores_enteros
+   33                       | %empty
+
+   34 r_inmediato: T_INT_LIT
+   35            | T_ALPHANUM
+
+   36 r_posicion: T_INT_LIT
+   37           | T_ALPHANUM
+
+   38 r_instruccion: INST_NOP
+   39              | FORM_INM_L REG_INT ',' r_inmediato '(' REG_INT ')'
+   40              | FORM_INM_S REG_INT ',' r_inmediato '(' REG_INT ')'
+   41              | FORM_INM_B REG_INT ',' r_posicion
+   42              | FORM_REG REG_INT ',' REG_INT ',' REG_INT
+   43              | FORM_REG REG_INT ',' REG_INT ',' r_inmediato
+   44              | FORM_INM REG_INT ',' REG_INT ',' r_inmediato
+   45              | FORM_INM_T T_INT_LIT
+
+
+Terminales con las reglas donde aparecen
+
+$end (0) 0
+'(' (40) 39 40
+')' (41) 39 40
+',' (44) 22 28 32 39 40 41 42 43 44
+error (256)
+NL (258) 5 7 8
+T_INT_LIT (259) 18 21 27 31 34 36 45
+T_FP_LIT (260) 25
+T_ALPHANUM (261) 35 37
+REG_INT (262) 39 40 41 42 43 44
+REG_FP (263)
+DE_DATA (264) 12
+DE_TEXT (265) 13
+DE_DWORD (266) 15
+DE_DOUBLE (267) 17
+DE_SPACE (268) 18
+DE_IREG (269) 19
+FORM_INM_L (270) 39
+FORM_INM_S (271) 40
+FORM_INM (272) 44
+FORM_INM_B (273) 41
+FORM_INM_T (274) 45
+INST_NOP (275) 38
+FORM_REG (276) 42 43
+LABEL (277) 2
+
+
+No terminales con las reglas donde aparecen
+
+$accept (26)
+    en la izquierda: 0
+r_inicio (27)
+    en la izquierda: 2 3, en la derecha: 0 5 7 8
+$@1 (28)
+    en la izquierda: 1, en la derecha: 2
+r_linea_ensamblador (29)
+    en la izquierda: 5 7 8 9 10 11, en la derecha: 2 3
+$@2 (30)
+    en la izquierda: 4, en la derecha: 5
+$@3 (31)
+    en la izquierda: 6, en la derecha: 7
+r_directiva (32)
+    en la izquierda: 12 13 15 17 18 19, en la derecha: 5 9
+$@4 (33)
+    en la izquierda: 14, en la derecha: 15
+$@5 (34)
+    en la izquierda: 16, en la derecha: 17
+r_lista_enteros (35)
+    en la izquierda: 21, en la derecha: 15 22
+$@6 (36)
+    en la izquierda: 20, en la derecha: 21
+r_lista_enteros_cont (37)
+    en la izquierda: 22 23, en la derecha: 21
+r_lista_reales (38)
+    en la izquierda: 25 27, en la derecha: 17 28
+$@7 (39)
+    en la izquierda: 24, en la derecha: 25
+$@8 (40)
+    en la izquierda: 26, en la derecha: 27
+r_lista_reales_cont (41)
+    en la izquierda: 28 29, en la derecha: 25 27
+r_valores_enteros (42)
+    en la izquierda: 31, en la derecha: 19 32
+$@9 (43)
+    en la izquierda: 30, en la derecha: 31
+r_valores_enteros_cont (44)
+    en la izquierda: 32 33, en la derecha: 31
+r_inmediato (45)
+    en la izquierda: 34 35, en la derecha: 39 40 43 44
+r_posicion (46)
+    en la izquierda: 36 37, en la derecha: 41
+r_instruccion (47)
+    en la izquierda: 38 39 40 41 42 43 44 45, en la derecha: 7 10
+
+
+Estado 0
+
+    0 $accept: . r_inicio $end
+
+    NL          desplazar e ir al estado 1
+    DE_DATA     desplazar e ir al estado 2
+    DE_TEXT     desplazar e ir al estado 3
+    DE_DWORD    desplazar e ir al estado 4
+    DE_DOUBLE   desplazar e ir al estado 5
+    DE_SPACE    desplazar e ir al estado 6
+    DE_IREG     desplazar e ir al estado 7
+    FORM_INM_L  desplazar e ir al estado 8
+    FORM_INM_S  desplazar e ir al estado 9
+    FORM_INM    desplazar e ir al estado 10
+    FORM_INM_B  desplazar e ir al estado 11
+    FORM_INM_T  desplazar e ir al estado 12
+    INST_NOP    desplazar e ir al estado 13
+    FORM_REG    desplazar e ir al estado 14
+    LABEL       desplazar e ir al estado 15
+
+    $default  reduce usando la regla 11 (r_linea_ensamblador)
+
+    r_inicio             ir al estado 16
+    r_linea_ensamblador  ir al estado 17
+    r_directiva          ir al estado 18
+    r_instruccion        ir al estado 19
+
+
+Estado 1
+
+    8 r_linea_ensamblador: NL . r_inicio
+
+    NL          desplazar e ir al estado 1
+    DE_DATA     desplazar e ir al estado 2
+    DE_TEXT     desplazar e ir al estado 3
+    DE_DWORD    desplazar e ir al estado 4
+    DE_DOUBLE   desplazar e ir al estado 5
+    DE_SPACE    desplazar e ir al estado 6
+    DE_IREG     desplazar e ir al estado 7
+    FORM_INM_L  desplazar e ir al estado 8
+    FORM_INM_S  desplazar e ir al estado 9
+    FORM_INM    desplazar e ir al estado 10
+    FORM_INM_B  desplazar e ir al estado 11
+    FORM_INM_T  desplazar e ir al estado 12
+    INST_NOP    desplazar e ir al estado 13
+    FORM_REG    desplazar e ir al estado 14
+    LABEL       desplazar e ir al estado 15
+
+    $default  reduce usando la regla 11 (r_linea_ensamblador)
+
+    r_inicio             ir al estado 20
+    r_linea_ensamblador  ir al estado 17
+    r_directiva          ir al estado 18
+    r_instruccion        ir al estado 19
+
+
+Estado 2
+
+   12 r_directiva: DE_DATA .
+
+    $default  reduce usando la regla 12 (r_directiva)
+
+
+Estado 3
+
+   13 r_directiva: DE_TEXT .
+
+    $default  reduce usando la regla 13 (r_directiva)
+
+
+Estado 4
+
+   15 r_directiva: DE_DWORD . $@4 r_lista_enteros
+
+    $default  reduce usando la regla 14 ($@4)
+
+    $@4  ir al estado 21
+
+
+Estado 5
+
+   17 r_directiva: DE_DOUBLE . $@5 r_lista_reales
+
+    $default  reduce usando la regla 16 ($@5)
+
+    $@5  ir al estado 22
+
+
+Estado 6
+
+   18 r_directiva: DE_SPACE . T_INT_LIT
+
+    T_INT_LIT  desplazar e ir al estado 23
+
+
+Estado 7
+
+   19 r_directiva: DE_IREG . r_valores_enteros
+
+    T_INT_LIT  desplazar e ir al estado 24
+
+    r_valores_enteros  ir al estado 25
+
+
+Estado 8
+
+   39 r_instruccion: FORM_INM_L . REG_INT ',' r_inmediato '(' REG_INT ')'
+
+    REG_INT  desplazar e ir al estado 26
+
+
+Estado 9
+
+   40 r_instruccion: FORM_INM_S . REG_INT ',' r_inmediato '(' REG_INT ')'
+
+    REG_INT  desplazar e ir al estado 27
+
+
+Estado 10
+
+   44 r_instruccion: FORM_INM . REG_INT ',' REG_INT ',' r_inmediato
+
+    REG_INT  desplazar e ir al estado 28
+
+
+Estado 11
+
+   41 r_instruccion: FORM_INM_B . REG_INT ',' r_posicion
+
+    REG_INT  desplazar e ir al estado 29
+
+
+Estado 12
+
+   45 r_instruccion: FORM_INM_T . T_INT_LIT
+
+    T_INT_LIT  desplazar e ir al estado 30
+
+
+Estado 13
+
+   38 r_instruccion: INST_NOP .
+
+    $default  reduce usando la regla 38 (r_instruccion)
+
+
+Estado 14
+
+   42 r_instruccion: FORM_REG . REG_INT ',' REG_INT ',' REG_INT
+   43              | FORM_REG . REG_INT ',' REG_INT ',' r_inmediato
+
+    REG_INT  desplazar e ir al estado 31
+
+
+Estado 15
+
+    2 r_inicio: LABEL . $@1 r_linea_ensamblador
+
+    $default  reduce usando la regla 1 ($@1)
+
+    $@1  ir al estado 32
+
+
+Estado 16
+
+    0 $accept: r_inicio . $end
+
+    $end  desplazar e ir al estado 33
+
+
+Estado 17
+
+    3 r_inicio: r_linea_ensamblador .
+
+    $default  reduce usando la regla 3 (r_inicio)
+
+
+Estado 18
+
+    5 r_linea_ensamblador: r_directiva . NL $@2 r_inicio
+    9                    | r_directiva .
+
+    NL  desplazar e ir al estado 34
+
+    $default  reduce usando la regla 9 (r_linea_ensamblador)
+
+
+Estado 19
+
+    7 r_linea_ensamblador: r_instruccion . NL $@3 r_inicio
+   10                    | r_instruccion .
+
+    NL  desplazar e ir al estado 35
+
+    $default  reduce usando la regla 10 (r_linea_ensamblador)
+
+
+Estado 20
+
+    8 r_linea_ensamblador: NL r_inicio .
+
+    $default  reduce usando la regla 8 (r_linea_ensamblador)
+
+
+Estado 21
+
+   15 r_directiva: DE_DWORD $@4 . r_lista_enteros
+
+    T_INT_LIT  desplazar e ir al estado 36
+
+    r_lista_enteros  ir al estado 37
+
+
+Estado 22
+
+   17 r_directiva: DE_DOUBLE $@5 . r_lista_reales
+
+    T_INT_LIT  desplazar e ir al estado 38
+    T_FP_LIT   desplazar e ir al estado 39
+
+    r_lista_reales  ir al estado 40
+
+
+Estado 23
+
+   18 r_directiva: DE_SPACE T_INT_LIT .
+
+    $default  reduce usando la regla 18 (r_directiva)
+
+
+Estado 24
+
+   31 r_valores_enteros: T_INT_LIT . $@9 r_valores_enteros_cont
+
+    $default  reduce usando la regla 30 ($@9)
+
+    $@9  ir al estado 41
+
+
+Estado 25
+
+   19 r_directiva: DE_IREG r_valores_enteros .
+
+    $default  reduce usando la regla 19 (r_directiva)
+
+
+Estado 26
+
+   39 r_instruccion: FORM_INM_L REG_INT . ',' r_inmediato '(' REG_INT ')'
+
+    ','  desplazar e ir al estado 42
+
+
+Estado 27
+
+   40 r_instruccion: FORM_INM_S REG_INT . ',' r_inmediato '(' REG_INT ')'
+
+    ','  desplazar e ir al estado 43
+
+
+Estado 28
+
+   44 r_instruccion: FORM_INM REG_INT . ',' REG_INT ',' r_inmediato
+
+    ','  desplazar e ir al estado 44
+
+
+Estado 29
+
+   41 r_instruccion: FORM_INM_B REG_INT . ',' r_posicion
+
+    ','  desplazar e ir al estado 45
+
+
+Estado 30
+
+   45 r_instruccion: FORM_INM_T T_INT_LIT .
+
+    $default  reduce usando la regla 45 (r_instruccion)
+
+
+Estado 31
+
+   42 r_instruccion: FORM_REG REG_INT . ',' REG_INT ',' REG_INT
+   43              | FORM_REG REG_INT . ',' REG_INT ',' r_inmediato
+
+    ','  desplazar e ir al estado 46
+
+
+Estado 32
+
+    2 r_inicio: LABEL $@1 . r_linea_ensamblador
+
+    NL          desplazar e ir al estado 1
+    DE_DATA     desplazar e ir al estado 2
+    DE_TEXT     desplazar e ir al estado 3
+    DE_DWORD    desplazar e ir al estado 4
+    DE_DOUBLE   desplazar e ir al estado 5
+    DE_SPACE    desplazar e ir al estado 6
+    DE_IREG     desplazar e ir al estado 7
+    FORM_INM_L  desplazar e ir al estado 8
+    FORM_INM_S  desplazar e ir al estado 9
+    FORM_INM    desplazar e ir al estado 10
+    FORM_INM_B  desplazar e ir al estado 11
+    FORM_INM_T  desplazar e ir al estado 12
+    INST_NOP    desplazar e ir al estado 13
+    FORM_REG    desplazar e ir al estado 14
+
+    $default  reduce usando la regla 11 (r_linea_ensamblador)
+
+    r_linea_ensamblador  ir al estado 47
+    r_directiva          ir al estado 18
+    r_instruccion        ir al estado 19
+
+
+Estado 33
+
+    0 $accept: r_inicio $end .
+
+    $default  aceptar
+
+
+Estado 34
+
+    5 r_linea_ensamblador: r_directiva NL . $@2 r_inicio
+
+    $default  reduce usando la regla 4 ($@2)
+
+    $@2  ir al estado 48
+
+
+Estado 35
+
+    7 r_linea_ensamblador: r_instruccion NL . $@3 r_inicio
+
+    $default  reduce usando la regla 6 ($@3)
+
+    $@3  ir al estado 49
+
+
+Estado 36
+
+   21 r_lista_enteros: T_INT_LIT . $@6 r_lista_enteros_cont
+
+    $default  reduce usando la regla 20 ($@6)
+
+    $@6  ir al estado 50
+
+
+Estado 37
+
+   15 r_directiva: DE_DWORD $@4 r_lista_enteros .
+
+    $default  reduce usando la regla 15 (r_directiva)
+
+
+Estado 38
+
+   27 r_lista_reales: T_INT_LIT . $@8 r_lista_reales_cont
+
+    $default  reduce usando la regla 26 ($@8)
+
+    $@8  ir al estado 51
+
+
+Estado 39
+
+   25 r_lista_reales: T_FP_LIT . $@7 r_lista_reales_cont
+
+    $default  reduce usando la regla 24 ($@7)
+
+    $@7  ir al estado 52
+
+
+Estado 40
+
+   17 r_directiva: DE_DOUBLE $@5 r_lista_reales .
+
+    $default  reduce usando la regla 17 (r_directiva)
+
+
+Estado 41
+
+   31 r_valores_enteros: T_INT_LIT $@9 . r_valores_enteros_cont
+
+    ','  desplazar e ir al estado 53
+
+    $default  reduce usando la regla 33 (r_valores_enteros_cont)
+
+    r_valores_enteros_cont  ir al estado 54
+
+
+Estado 42
+
+   39 r_instruccion: FORM_INM_L REG_INT ',' . r_inmediato '(' REG_INT ')'
+
+    T_INT_LIT   desplazar e ir al estado 55
+    T_ALPHANUM  desplazar e ir al estado 56
+
+    r_inmediato  ir al estado 57
+
+
+Estado 43
+
+   40 r_instruccion: FORM_INM_S REG_INT ',' . r_inmediato '(' REG_INT ')'
+
+    T_INT_LIT   desplazar e ir al estado 55
+    T_ALPHANUM  desplazar e ir al estado 56
+
+    r_inmediato  ir al estado 58
+
+
+Estado 44
+
+   44 r_instruccion: FORM_INM REG_INT ',' . REG_INT ',' r_inmediato
+
+    REG_INT  desplazar e ir al estado 59
+
+
+Estado 45
+
+   41 r_instruccion: FORM_INM_B REG_INT ',' . r_posicion
+
+    T_INT_LIT   desplazar e ir al estado 60
+    T_ALPHANUM  desplazar e ir al estado 61
+
+    r_posicion  ir al estado 62
+
+
+Estado 46
+
+   42 r_instruccion: FORM_REG REG_INT ',' . REG_INT ',' REG_INT
+   43              | FORM_REG REG_INT ',' . REG_INT ',' r_inmediato
+
+    REG_INT  desplazar e ir al estado 63
+
+
+Estado 47
+
+    2 r_inicio: LABEL $@1 r_linea_ensamblador .
+
+    $default  reduce usando la regla 2 (r_inicio)
+
+
+Estado 48
+
+    5 r_linea_ensamblador: r_directiva NL $@2 . r_inicio
+
+    NL          desplazar e ir al estado 1
+    DE_DATA     desplazar e ir al estado 2
+    DE_TEXT     desplazar e ir al estado 3
+    DE_DWORD    desplazar e ir al estado 4
+    DE_DOUBLE   desplazar e ir al estado 5
+    DE_SPACE    desplazar e ir al estado 6
+    DE_IREG     desplazar e ir al estado 7
+    FORM_INM_L  desplazar e ir al estado 8
+    FORM_INM_S  desplazar e ir al estado 9
+    FORM_INM    desplazar e ir al estado 10
+    FORM_INM_B  desplazar e ir al estado 11
+    FORM_INM_T  desplazar e ir al estado 12
+    INST_NOP    desplazar e ir al estado 13
+    FORM_REG    desplazar e ir al estado 14
+    LABEL       desplazar e ir al estado 15
+
+    $default  reduce usando la regla 11 (r_linea_ensamblador)
+
+    r_inicio             ir al estado 64
+    r_linea_ensamblador  ir al estado 17
+    r_directiva          ir al estado 18
+    r_instruccion        ir al estado 19
+
+
+Estado 49
+
+    7 r_linea_ensamblador: r_instruccion NL $@3 . r_inicio
+
+    NL          desplazar e ir al estado 1
+    DE_DATA     desplazar e ir al estado 2
+    DE_TEXT     desplazar e ir al estado 3
+    DE_DWORD    desplazar e ir al estado 4
+    DE_DOUBLE   desplazar e ir al estado 5
+    DE_SPACE    desplazar e ir al estado 6
+    DE_IREG     desplazar e ir al estado 7
+    FORM_INM_L  desplazar e ir al estado 8
+    FORM_INM_S  desplazar e ir al estado 9
+    FORM_INM    desplazar e ir al estado 10
+    FORM_INM_B  desplazar e ir al estado 11
+    FORM_INM_T  desplazar e ir al estado 12
+    INST_NOP    desplazar e ir al estado 13
+    FORM_REG    desplazar e ir al estado 14
+    LABEL       desplazar e ir al estado 15
+
+    $default  reduce usando la regla 11 (r_linea_ensamblador)
+
+    r_inicio             ir al estado 65
+    r_linea_ensamblador  ir al estado 17
+    r_directiva          ir al estado 18
+    r_instruccion        ir al estado 19
+
+
+Estado 50
+
+   21 r_lista_enteros: T_INT_LIT $@6 . r_lista_enteros_cont
+
+    ','  desplazar e ir al estado 66
+
+    $default  reduce usando la regla 23 (r_lista_enteros_cont)
+
+    r_lista_enteros_cont  ir al estado 67
+
+
+Estado 51
+
+   27 r_lista_reales: T_INT_LIT $@8 . r_lista_reales_cont
+
+    ','  desplazar e ir al estado 68
+
+    $default  reduce usando la regla 29 (r_lista_reales_cont)
+
+    r_lista_reales_cont  ir al estado 69
+
+
+Estado 52
+
+   25 r_lista_reales: T_FP_LIT $@7 . r_lista_reales_cont
+
+    ','  desplazar e ir al estado 68
+
+    $default  reduce usando la regla 29 (r_lista_reales_cont)
+
+    r_lista_reales_cont  ir al estado 70
+
+
+Estado 53
+
+   32 r_valores_enteros_cont: ',' . r_valores_enteros
+
+    T_INT_LIT  desplazar e ir al estado 24
+
+    r_valores_enteros  ir al estado 71
+
+
+Estado 54
+
+   31 r_valores_enteros: T_INT_LIT $@9 r_valores_enteros_cont .
+
+    $default  reduce usando la regla 31 (r_valores_enteros)
+
+
+Estado 55
+
+   34 r_inmediato: T_INT_LIT .
+
+    $default  reduce usando la regla 34 (r_inmediato)
+
+
+Estado 56
+
+   35 r_inmediato: T_ALPHANUM .
+
+    $default  reduce usando la regla 35 (r_inmediato)
+
+
+Estado 57
+
+   39 r_instruccion: FORM_INM_L REG_INT ',' r_inmediato . '(' REG_INT ')'
+
+    '('  desplazar e ir al estado 72
+
+
+Estado 58
+
+   40 r_instruccion: FORM_INM_S REG_INT ',' r_inmediato . '(' REG_INT ')'
+
+    '('  desplazar e ir al estado 73
+
+
+Estado 59
+
+   44 r_instruccion: FORM_INM REG_INT ',' REG_INT . ',' r_inmediato
+
+    ','  desplazar e ir al estado 74
+
+
+Estado 60
+
+   36 r_posicion: T_INT_LIT .
+
+    $default  reduce usando la regla 36 (r_posicion)
+
+
+Estado 61
+
+   37 r_posicion: T_ALPHANUM .
+
+    $default  reduce usando la regla 37 (r_posicion)
+
+
+Estado 62
+
+   41 r_instruccion: FORM_INM_B REG_INT ',' r_posicion .
+
+    $default  reduce usando la regla 41 (r_instruccion)
+
+
+Estado 63
+
+   42 r_instruccion: FORM_REG REG_INT ',' REG_INT . ',' REG_INT
+   43              | FORM_REG REG_INT ',' REG_INT . ',' r_inmediato
+
+    ','  desplazar e ir al estado 75
+
+
+Estado 64
+
+    5 r_linea_ensamblador: r_directiva NL $@2 r_inicio .
+
+    $default  reduce usando la regla 5 (r_linea_ensamblador)
+
+
+Estado 65
+
+    7 r_linea_ensamblador: r_instruccion NL $@3 r_inicio .
+
+    $default  reduce usando la regla 7 (r_linea_ensamblador)
+
+
+Estado 66
+
+   22 r_lista_enteros_cont: ',' . r_lista_enteros
+
+    T_INT_LIT  desplazar e ir al estado 36
+
+    r_lista_enteros  ir al estado 76
+
+
+Estado 67
+
+   21 r_lista_enteros: T_INT_LIT $@6 r_lista_enteros_cont .
+
+    $default  reduce usando la regla 21 (r_lista_enteros)
+
+
+Estado 68
+
+   28 r_lista_reales_cont: ',' . r_lista_reales
+
+    T_INT_LIT  desplazar e ir al estado 38
+    T_FP_LIT   desplazar e ir al estado 39
+
+    r_lista_reales  ir al estado 77
+
+
+Estado 69
+
+   27 r_lista_reales: T_INT_LIT $@8 r_lista_reales_cont .
+
+    $default  reduce usando la regla 27 (r_lista_reales)
+
+
+Estado 70
+
+   25 r_lista_reales: T_FP_LIT $@7 r_lista_reales_cont .
+
+    $default  reduce usando la regla 25 (r_lista_reales)
+
+
+Estado 71
+
+   32 r_valores_enteros_cont: ',' r_valores_enteros .
+
+    $default  reduce usando la regla 32 (r_valores_enteros_cont)
+
+
+Estado 72
+
+   39 r_instruccion: FORM_INM_L REG_INT ',' r_inmediato '(' . REG_INT ')'
+
+    REG_INT  desplazar e ir al estado 78
+
+
+Estado 73
+
+   40 r_instruccion: FORM_INM_S REG_INT ',' r_inmediato '(' . REG_INT ')'
+
+    REG_INT  desplazar e ir al estado 79
+
+
+Estado 74
+
+   44 r_instruccion: FORM_INM REG_INT ',' REG_INT ',' . r_inmediato
+
+    T_INT_LIT   desplazar e ir al estado 55
+    T_ALPHANUM  desplazar e ir al estado 56
+
+    r_inmediato  ir al estado 80
+
+
+Estado 75
+
+   42 r_instruccion: FORM_REG REG_INT ',' REG_INT ',' . REG_INT
+   43              | FORM_REG REG_INT ',' REG_INT ',' . r_inmediato
+
+    T_INT_LIT   desplazar e ir al estado 55
+    T_ALPHANUM  desplazar e ir al estado 56
+    REG_INT     desplazar e ir al estado 81
+
+    r_inmediato  ir al estado 82
+
+
+Estado 76
+
+   22 r_lista_enteros_cont: ',' r_lista_enteros .
+
+    $default  reduce usando la regla 22 (r_lista_enteros_cont)
+
+
+Estado 77
+
+   28 r_lista_reales_cont: ',' r_lista_reales .
+
+    $default  reduce usando la regla 28 (r_lista_reales_cont)
+
+
+Estado 78
+
+   39 r_instruccion: FORM_INM_L REG_INT ',' r_inmediato '(' REG_INT . ')'
+
+    ')'  desplazar e ir al estado 83
+
+
+Estado 79
+
+   40 r_instruccion: FORM_INM_S REG_INT ',' r_inmediato '(' REG_INT . ')'
+
+    ')'  desplazar e ir al estado 84
+
+
+Estado 80
+
+   44 r_instruccion: FORM_INM REG_INT ',' REG_INT ',' r_inmediato .
+
+    $default  reduce usando la regla 44 (r_instruccion)
+
+
+Estado 81
+
+   42 r_instruccion: FORM_REG REG_INT ',' REG_INT ',' REG_INT .
+
+    $default  reduce usando la regla 42 (r_instruccion)
+
+
+Estado 82
+
+   43 r_instruccion: FORM_REG REG_INT ',' REG_INT ',' r_inmediato .
+
+    $default  reduce usando la regla 43 (r_instruccion)
+
+
+Estado 83
+
+   39 r_instruccion: FORM_INM_L REG_INT ',' r_inmediato '(' REG_INT ')' .
+
+    $default  reduce usando la regla 39 (r_instruccion)
+
+
+Estado 84
+
+   40 r_instruccion: FORM_INM_S REG_INT ',' r_inmediato '(' REG_INT ')' .
+
+    $default  reduce usando la regla 40 (r_instruccion)
