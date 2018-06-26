@@ -1,0 +1,18 @@
+OPCION  5  -> NOT category:"aaa"
+OPCION  6  -> NOT category:ca*sa
+OPCION  7  -> NOT category:ca?sa
+OPCION  8  -> NOT category:casa
+OPCION  25  -> OR NOT category:"cat"
+OPCION  26  -> OR NOT category:ca*sa
+OPCION  27  -> OR NOT category:ca?sa
+OPCION  28  -> OR NOT category:casa
+OPCION  45  -> OR category:"cat"
+OPCION  46  -> OR category:ca*sa
+OPCION  47  -> OR category:ca?sa
+OPCION  48  -> OR category:casa
+OPCION  65  -> category:"cat"
+OPCION  66  -> category:ca*sa
+OPCION  67  -> category:ca?sa
+OPCION  68  -> category:cat
+
+

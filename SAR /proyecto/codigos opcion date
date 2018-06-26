@@ -1,0 +1,18 @@
+OPCION  1  -> NOT date:"hola"
+OPCION  2  -> NOT date:ca*a
+OPCION  3  -> NOT date:ca?a
+OPCION  4  -> NOT date:casa
+OPCION  21  -> OR NOT date:"lis"
+OPCION  22  -> OR NOT date:ca*sa
+OPCION  23  -> OR NOT date:ca?sa
+OPCION  24  -> OR NOT date:124
+OPCION  41  -> OR date:"lis"
+OPCION  42  -> OR date:ca*sa
+OPCION  43  -> OR date:ca?sa
+OPCION  44  -> OR date:124
+OPCION  61  -> date:"dfdf"
+OPCION  62  -> date:ca*sa
+OPCION  63  -> date:ca?sa
+OPCION  64  -> date:123
+
+

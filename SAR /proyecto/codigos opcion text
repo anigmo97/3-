@@ -1,0 +1,33 @@
+OPCION  9  -> NOT text:"te"
+OPCION  10  -> NOT text:ca*a
+OPCION  11  -> NOT text:ca?a
+OPCION  12  -> NOT text:esd
+OPCION  17  -> NOT "cosa"
+OPCION  18  -> NOT ca*sa
+OPCION  19  -> NOT ca?sa
+OPCION  20  -> NOT casa
+OPCION  29  -> OR NOT text:"cas"
+OPCION  30  -> OR NOT text:ca*a
+OPCION  31  -> OR NOT text:ca?a
+OPCION  32  -> OR NOT text:casa
+OPCION  37  -> OR NOT "liss"
+OPCION  38  -> OR NOT ca*sa
+OPCION  39  -> OR NOT ca?sa
+OPCION  40  -> OR NOT casa
+OPCION  49  -> OR text:"cas"
+OPCION  50  -> OR text:ca*a
+OPCION  51  -> OR text:ca?a
+OPCION  52  -> OR text:casa
+OPCION  57  -> OR "liss"
+OPCION  58  -> OR ca*sa
+OPCION  59  -> OR ca?sa
+OPCION  60  -> OR casa
+OPCION  69  -> text:"tes"
+OPCION  70  -> text:ca*sa
+OPCION  71  -> text:ca?sa
+OPCION  72  -> text:casa
+OPCION  77  -> "lo es"
+OPCION  78  -> ca*sa
+OPCION  79  -> ca?sa
+OPCION  80  -> casa
+

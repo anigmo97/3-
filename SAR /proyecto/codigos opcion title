@@ -1,0 +1,18 @@
+OPCION  13  -> NOT headline:"titu"
+OPCION  14  -> NOT headline:ca*sa
+OPCION  15  -> NOT headline:ca?sa
+OPCION  16  -> NOT headline:casa
+OPCION  33  -> OR NOT headline:"sss"
+OPCION  34  -> OR NOT headline:ca*sa
+OPCION  35  -> OR NOT headline:ca?sa
+OPCION  36  -> OR NOT headline:casa
+OPCION  53  -> OR headline:"sss"
+OPCION  54  -> OR headline:ca*sa
+OPCION  55  -> OR headline:ca?sa
+OPCION  56  -> OR headline:casa
+OPCION  73  -> headline:"lis"
+OPCION  74  -> headline:ca*sa
+OPCION  75  -> headline:ca?sa
+OPCION  76  -> headline:casa
+
+
