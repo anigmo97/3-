@@ -1,0 +1,10 @@
+Plantilla:
+
+(transporte *ini* *fin* *punto actual*  *Base bici* *dest1*   *Pie/Bici*  *distancia* *nodos recorridos*)
+                            * Base / NB*                P/NP
+( camino A Base B Base 10 BiciOK )
+
+(deffacts bhinicial
+    transporte 
+    
+    )

@@ -1,0 +1,40 @@
+ Ejecuta run para poner en marcha el programa 
+L a R pie coste= 2 prioridad= 6
+F a R pie coste= 10 prioridad= 28
+<Fact-57>
+CLIPS> (run)
+K a R pie coste= 4 prioridad= 6
+M a R pie coste= 9 prioridad= 11
+P a R pie coste= 8 prioridad= 10
+F a R pie coste= 8 prioridad= 26
+G a R pie coste= 11 prioridad= 29
+ESTOY EN K y VOY ANDANDO a L
+L a R pie coste= 6 prioridad= 10
+F a R pie coste= 14 prioridad= 32
+ESTOY EN L y VOY ANDANDO a K
+L a R pie coste= 14 prioridad= 18
+R a R pie coste= 12 prioridad= 12
+Q a R pie coste= 10 prioridad= 12
+ESTOY EN L y VOY ANDANDO a P
+K a R pie coste= 8 prioridad= 10
+M a R pie coste= 13 prioridad= 15
+P a R pie coste= 12 prioridad= 14
+F a R pie coste= 12 prioridad= 30
+G a R pie coste= 15 prioridad= 33
+ESTOY EN K y VOY ANDANDO a L
+L a R pie coste= 10 prioridad= 14
+F a R pie coste= 18 prioridad= 36
+ESTOY EN L y VOY ANDANDO a K
+L a R pie coste= 16 prioridad= 20
+G a R pie coste= 21 prioridad= 39
+Q a R pie coste= 11 prioridad= 13
+ESTOY EN L y VOY ANDANDO a M
+P a R pie coste= 16 prioridad= 18
+Q a R pie coste= 15 prioridad= 17
+ESTOY EN P y VOY ANDANDO a R
+ESTOY EN R PARADA FINAL
+Resultado Camino :(K L P R)
+Coste Total :12
+Numero de operaciones :3
+Numero de pasos :3
+Numero de nodos desplegados :7
