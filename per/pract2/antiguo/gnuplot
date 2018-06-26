@@ -1,0 +1,18 @@
+necesitamos un fichero con 3 columnas
+
+epsilon   media   2(desviación típica)
+1e-1      19.4
+1e-2      21.3
+
+
+
+30 columnas
+
+
+set logscale xy
+plot "fichero.txt" u 1:2 with linepoints, "" u 1:2:3 with errorbars
+plot "fichero.txt" u 1:2 w lp, "" u 1:2:3 w e
+
+
+
+1º) se dibuja la linea del centro 
