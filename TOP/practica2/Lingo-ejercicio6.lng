@@ -1,0 +1,24 @@
+! PRACTICA 2;
+
+!
+**VARIABLES DECISION**
+A: Unidades del producto A a fabricar al dia
+Bj Unidades del producto B a fabricar al dia en la linea j. j=(1,2)
+Cj Unidades del producto C a fabricar al dia en la linea j. j=(1,2)
+;
+
+!**FUNCION OBJETIVO** ;
+MIN = A*(10*40 + 6*24 + 3*30)+B1*(8*40 + 10*24) + B2*(6*50 + 9*30)+ 
+C1*(8*40 + 16*24) + C2*(10*50 + 3*24 + 8*30) +D*(2*40 + 12*50 + 6*24);!(uds monetarias);
+
+!**RESTRICCIONES**;
+[CAP_M1] A*10 + B1*8 + C1*8 +D*2<= 480;
+[CAP_M2] B2*6 + C2*10 + D*12 <= 480;
+[CAP_M3] A*6 + B1*10 + C1*16 + C2*3 +D*6 <= 480;
+[CAP_M4] A*3 + B2*9 + C2*8 <= 480;
+
+[DEMANDA_A] A >= 36;
+[DEMANDA_B] B1 + B2 >= 45;
+[DEMANDA_C] C1 + C2 >=10;
+[DEMANDA_D] D >= 5;
+! la >=0 se presupone; 

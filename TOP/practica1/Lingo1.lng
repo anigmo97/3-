@@ -1,0 +1,40 @@
+! PRACTICA 1;
+!
+Super_A: Barriles diarios de crudo A utilizados para fabricar gasolina super
+Super_B: Barriles diarios de crudo B utilizados para fabricar gasolina super
+Super_C: Barriles diarios de crudo C utilizados para fabricar gasolina super
+
+Normal_A : Barriles diarios de crudo A utilizados para fabricar gasolina normal
+Normal_B : Barriles diarios de crudo B utilizados para fabricar gasolina normal
+Normal_C : Barriles diarios de crudo C utilizados para fabricar gasolina normal
+
+Euro_A : Barriles diarios de crudo A utilizados para fabricar gasolina euro
+Euro_B : Barriles diarios de crudo B utilizados para fabricar gasolina euro
+Euro_C : Barriles diarios de crudo C utilizados para fabricar gasolina euro
+;
+
+
+MAX = (Euro_A + Euro_B + Euro_C); ! La gasolina es 95% crudos;
+!Maximo numero de barriles de gasolina Euro que produciremos al dia;
+
+[Presupuesto]  ((Euro_A + Normal_A + Super_A)*650) + ((Euro_B + Normal_B + Super_B)*500) + ((Euro_C + Normal_C + Super_C)*450) <= 50000000;
+
+[Cant_A] Euro_A + Normal_A + Super_A >= 2500;
+[Cant_B] Euro_B + Normal_B + Super_B <= 3000;
+[Cant_C] Euro_C + Normal_C + Super_C <= 7000;
+
+[Demanda_Super] Super_A + Super_B + Super_C >= 2000; 
+[Demanda_Normal] Normal_A + Normal_B + Normal_C >= 2500; 
+
+[Proporcion_1_Super] Super_A * 0.8 + Super_B * 0.45 + Super_C * 0.30 >= 0.6*((Super_A + Super_B + Super_C));
+[Proporcion_2_Super] Super_A * 0.1 + Super_B * 0.30 + Super_C * 0.40 <= 0.25*((Super_A + Super_B + Super_C));
+[Proporcion_3_Super] Super_A * 0.05 + Super_B * 0.2 + Super_C * 0.25 >= 0.1*((Super_A + Super_B + Super_C));
+
+[Proporcion_1_Euro] Euro_A * 0.8 + Euro_B * 0.45 + Euro_C * 0.30 <= 0.4*((Euro_A + Euro_B + Euro_C));
+[Proporcion_2_Euro] Euro_A * 0.1 + Euro_B * 0.30 + Euro_C * 0.40 >= 0.35*((Euro_A + Euro_B + Euro_C));
+[Proporcion_3_Euro] Euro_A * 0.05 + Euro_B * 0.20 + Euro_C * 0.25 >= 0.2*((Euro_A + Euro_B + Euro_C));
+
+[Proporcion_1_Normal] Normal_A * 0.8 + Normal_B * 0.45 + Normal_C * 0.30 >= 0.5*((Normal_A + Normal_B + Normal_C));
+[Proporcion_2_Normal] Normal_A * 0.1 + Normal_B * 0.30 + Normal_C * 0.40 <= 0.3*((Normal_A + Normal_B + Normal_C));
+[Proporcion_3_Normal] Normal_A * 0.05 + Normal_B * 0.20 + Normal_C * 0.25 <= 0.15*((Normal_A + Normal_B + Normal_C));
+! la >=0 se presupone;

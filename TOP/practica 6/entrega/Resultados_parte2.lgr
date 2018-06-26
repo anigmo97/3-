@@ -1,0 +1,500 @@
+  Global optimal solution found.
+  Objective value:                              325411.6
+  Objective bound:                              325411.6
+  Infeasibilities:                              0.000000
+  Extended solver steps:                               2
+  Total solver iterations:                           520
+  Elapsed runtime seconds:                          0.16
+
+  Model Class:                                      MILP
+
+  Total variables:                    149
+  Nonlinear variables:                  0
+  Integer variables:                   30
+
+  Total constraints:                  120
+  Nonlinear constraints:                0
+
+  Total nonzeros:                     446
+  Nonlinear nonzeros:                   0
+
+
+
+                                Variable           Value        Reduced Cost
+     MANTENIMIENTO_PROGRAMADO( COTADORA)        2.000000            0.000000
+   MANTENIMIENTO_PROGRAMADO( FRESADORAV)        2.000000            0.000000
+   MANTENIMIENTO_PROGRAMADO( FRESADORAH)        3.000000            0.000000
+      MANTENIMIENTO_PROGRAMADO( TALADRO)        1.000000            0.000000
+    MANTENIMIENTO_PROGRAMADO( ALISADORA)        1.000000            0.000000
+                          BENEFICIO( P1)        10.00000            0.000000
+                          BENEFICIO( P2)        6.000000            0.000000
+                          BENEFICIO( P3)        8.000000            0.000000
+                          BENEFICIO( P4)        4.000000            0.000000
+                          BENEFICIO( P5)        11.00000            0.000000
+                          BENEFICIO( P6)        9.000000            0.000000
+                          BENEFICIO( P7)        3.000000            0.000000
+                   UPRODUCIDAS( ENE, P1)        404.2105            0.000000
+                   UPRODUCIDAS( ENE, P2)        0.000000            0.000000
+                   UPRODUCIDAS( ENE, P3)        1338.947            0.000000
+                   UPRODUCIDAS( ENE, P4)        0.000000            0.000000
+                   UPRODUCIDAS( ENE, P5)        3637.895            0.000000
+                   UPRODUCIDAS( ENE, P6)        1212.632            0.000000
+                   UPRODUCIDAS( ENE, P7)        0.000000            0.000000
+                   UPRODUCIDAS( FEB, P1)        808.4211            0.000000
+                   UPRODUCIDAS( FEB, P2)        0.000000            2.000000
+                   UPRODUCIDAS( FEB, P3)        1237.895            0.000000
+                   UPRODUCIDAS( FEB, P4)        0.000000            0.000000
+                   UPRODUCIDAS( FEB, P5)        3435.789            0.000000
+                   UPRODUCIDAS( FEB, P6)        505.2632            0.000000
+                   UPRODUCIDAS( FEB, P7)        0.000000            0.000000
+                   UPRODUCIDAS( MAR, P1)        808.4211            0.000000
+                   UPRODUCIDAS( MAR, P2)        0.000000            1.500000
+                   UPRODUCIDAS( MAR, P3)        1237.895            0.000000
+                   UPRODUCIDAS( MAR, P4)        0.000000            0.000000
+                   UPRODUCIDAS( MAR, P5)        3435.789            0.000000
+                   UPRODUCIDAS( MAR, P6)        505.2632            0.000000
+                   UPRODUCIDAS( MAR, P7)        0.000000            1.500000
+                   UPRODUCIDAS( ABR, P1)        0.000000            0.000000
+                   UPRODUCIDAS( ABR, P2)        0.000000            0.000000
+                   UPRODUCIDAS( ABR, P3)        0.000000            0.000000
+                   UPRODUCIDAS( ABR, P4)        0.000000            2.149123
+                   UPRODUCIDAS( ABR, P5)        0.000000            6.245614
+                   UPRODUCIDAS( ABR, P6)        1280.000            0.000000
+                   UPRODUCIDAS( ABR, P7)        0.000000            5.368421
+                   UPRODUCIDAS( MAY, P1)        404.2105            0.000000
+                   UPRODUCIDAS( MAY, P2)        0.000000           0.5000000
+                   UPRODUCIDAS( MAY, P3)        1338.947            0.000000
+                   UPRODUCIDAS( MAY, P4)        0.000000           0.5000000
+                   UPRODUCIDAS( MAY, P5)        3637.895            0.000000
+                   UPRODUCIDAS( MAY, P6)        1212.632            0.000000
+                   UPRODUCIDAS( MAY, P7)        0.000000           0.5000000
+                   UPRODUCIDAS( JUN, P1)        326.3158            0.000000
+                   UPRODUCIDAS( JUN, P2)        50.00000            0.000000
+                   UPRODUCIDAS( JUN, P3)        1320.921            0.000000
+                   UPRODUCIDAS( JUN, P4)        50.00000            0.000000
+                   UPRODUCIDAS( JUN, P5)        3586.842            0.000000
+                   UPRODUCIDAS( JUN, P6)        1183.947            0.000000
+                   UPRODUCIDAS( JUN, P7)        50.00000            0.000000
+                     UVENDIDAS( ENE, P1)        404.2105            0.000000
+                     UVENDIDAS( ENE, P2)        0.000000            2.015789
+                     UVENDIDAS( ENE, P3)        1338.947            0.000000
+                     UVENDIDAS( ENE, P4)        0.000000            7.221053
+                     UVENDIDAS( ENE, P5)        3637.895            0.000000
+                     UVENDIDAS( ENE, P6)        1212.632            0.000000
+                     UVENDIDAS( ENE, P7)        0.000000            12.62105
+                     UVENDIDAS( FEB, P1)        808.4211            0.000000
+                     UVENDIDAS( FEB, P2)        0.000000           0.1578947E-01
+                     UVENDIDAS( FEB, P3)        1237.895            0.000000
+                     UVENDIDAS( FEB, P4)        0.000000            7.221053
+                     UVENDIDAS( FEB, P5)        3435.789            0.000000
+                     UVENDIDAS( FEB, P6)        505.2632            0.000000
+                     UVENDIDAS( FEB, P7)        0.000000            12.62105
+                     UVENDIDAS( MAR, P1)        808.4211            0.000000
+                     UVENDIDAS( MAR, P2)        0.000000           0.5157895
+                     UVENDIDAS( MAR, P3)        1237.895            0.000000
+                     UVENDIDAS( MAR, P4)        0.000000            7.221053
+                     UVENDIDAS( MAR, P5)        3435.789            0.000000
+                     UVENDIDAS( MAR, P6)        505.2632            0.000000
+                     UVENDIDAS( MAR, P7)        0.000000            11.12105
+                     UVENDIDAS( ABR, P1)        0.000000            0.000000
+                     UVENDIDAS( ABR, P2)        0.000000            1.015789
+                     UVENDIDAS( ABR, P3)        0.000000            0.000000
+                     UVENDIDAS( ABR, P4)        0.000000            7.721053
+                     UVENDIDAS( ABR, P5)        0.000000            0.000000
+                     UVENDIDAS( ABR, P6)        1280.000            0.000000
+                     UVENDIDAS( ABR, P7)        0.000000            11.62105
+                     UVENDIDAS( MAY, P1)        404.2105            0.000000
+                     UVENDIDAS( MAY, P2)        0.000000            1.515789
+                     UVENDIDAS( MAY, P3)        1338.947            0.000000
+                     UVENDIDAS( MAY, P4)        0.000000            6.721053
+                     UVENDIDAS( MAY, P5)        3637.895            0.000000
+                     UVENDIDAS( MAY, P6)        1212.632            0.000000
+                     UVENDIDAS( MAY, P7)        0.000000            12.12105
+                     UVENDIDAS( JUN, P1)        276.3158            0.000000
+                     UVENDIDAS( JUN, P2)        0.000000            2.015789
+                     UVENDIDAS( JUN, P3)        1270.921            0.000000
+                     UVENDIDAS( JUN, P4)        0.000000            7.221053
+                     UVENDIDAS( JUN, P5)        3536.842            0.000000
+                     UVENDIDAS( JUN, P6)        1133.947            0.000000
+                     UVENDIDAS( JUN, P7)        0.000000            12.62105
+                        USTOCK( ENE, P1)        0.000000           0.5000000
+                        USTOCK( ENE, P2)        0.000000            2.500000
+                        USTOCK( ENE, P3)        0.000000           0.5000000
+                        USTOCK( ENE, P4)        0.000000           0.5000000
+                        USTOCK( ENE, P5)        0.000000           0.5000000
+                        USTOCK( ENE, P6)        0.000000           0.5000000
+                        USTOCK( ENE, P7)        0.000000           0.5000000
+                        USTOCK( FEB, P1)        0.000000           0.5000000
+                        USTOCK( FEB, P2)        0.000000            0.000000
+                        USTOCK( FEB, P3)        0.000000           0.5000000
+                        USTOCK( FEB, P4)        0.000000           0.5000000
+                        USTOCK( FEB, P5)        0.000000           0.5000000
+                        USTOCK( FEB, P6)        0.000000           0.5000000
+                        USTOCK( FEB, P7)        0.000000            2.000000
+                        USTOCK( MAR, P1)        0.000000           0.5000000
+                        USTOCK( MAR, P2)        0.000000            0.000000
+                        USTOCK( MAR, P3)        0.000000           0.5000000
+                        USTOCK( MAR, P4)        0.000000            0.000000
+                        USTOCK( MAR, P5)        0.000000           0.5000000
+                        USTOCK( MAR, P6)        0.000000           0.5000000
+                        USTOCK( MAR, P7)        0.000000            0.000000
+                        USTOCK( ABR, P1)        0.000000           0.5000000
+                        USTOCK( ABR, P2)        0.000000            0.000000
+                        USTOCK( ABR, P3)        0.000000           0.5000000
+                        USTOCK( ABR, P4)        0.000000            1.500000
+                        USTOCK( ABR, P5)        0.000000           0.5000000
+                        USTOCK( ABR, P6)        0.000000           0.5000000
+                        USTOCK( ABR, P7)        0.000000            0.000000
+                        USTOCK( MAY, P1)        0.000000           0.5000000
+                        USTOCK( MAY, P2)        0.000000            0.000000
+                        USTOCK( MAY, P3)        0.000000           0.5000000
+                        USTOCK( MAY, P4)        0.000000            0.000000
+                        USTOCK( MAY, P5)        0.000000           0.5000000
+                        USTOCK( MAY, P6)        0.000000           0.5000000
+                        USTOCK( MAY, P7)        0.000000            0.000000
+                        USTOCK( JUN, P1)        50.00000            0.000000
+                        USTOCK( JUN, P2)        50.00000            0.000000
+                        USTOCK( JUN, P3)        50.00000            0.000000
+                        USTOCK( JUN, P4)        50.00000            0.000000
+                        USTOCK( JUN, P5)        50.00000            0.000000
+                        USTOCK( JUN, P6)        50.00000            0.000000
+                        USTOCK( JUN, P7)        50.00000            0.000000
+                      MAXSTOCK( ENE, P1)        100.0000            0.000000
+                      MAXSTOCK( ENE, P2)        100.0000            0.000000
+                      MAXSTOCK( ENE, P3)        100.0000            0.000000
+                      MAXSTOCK( ENE, P4)        100.0000            0.000000
+                      MAXSTOCK( ENE, P5)        100.0000            0.000000
+                      MAXSTOCK( ENE, P6)        100.0000            0.000000
+                      MAXSTOCK( ENE, P7)        100.0000            0.000000
+                      MAXSTOCK( FEB, P1)        100.0000            0.000000
+                      MAXSTOCK( FEB, P2)        100.0000            0.000000
+                      MAXSTOCK( FEB, P3)        100.0000            0.000000
+                      MAXSTOCK( FEB, P4)        100.0000            0.000000
+                      MAXSTOCK( FEB, P5)        100.0000            0.000000
+                      MAXSTOCK( FEB, P6)        100.0000            0.000000
+                      MAXSTOCK( FEB, P7)        100.0000            0.000000
+                      MAXSTOCK( MAR, P1)        100.0000            0.000000
+                      MAXSTOCK( MAR, P2)        100.0000            0.000000
+                      MAXSTOCK( MAR, P3)        100.0000            0.000000
+                      MAXSTOCK( MAR, P4)        100.0000            0.000000
+                      MAXSTOCK( MAR, P5)        100.0000            0.000000
+                      MAXSTOCK( MAR, P6)        100.0000            0.000000
+                      MAXSTOCK( MAR, P7)        100.0000            0.000000
+                      MAXSTOCK( ABR, P1)        100.0000            0.000000
+                      MAXSTOCK( ABR, P2)        100.0000            0.000000
+                      MAXSTOCK( ABR, P3)        100.0000            0.000000
+                      MAXSTOCK( ABR, P4)        100.0000            0.000000
+                      MAXSTOCK( ABR, P5)        100.0000            0.000000
+                      MAXSTOCK( ABR, P6)        100.0000            0.000000
+                      MAXSTOCK( ABR, P7)        100.0000            0.000000
+                      MAXSTOCK( MAY, P1)        100.0000            0.000000
+                      MAXSTOCK( MAY, P2)        100.0000            0.000000
+                      MAXSTOCK( MAY, P3)        100.0000            0.000000
+                      MAXSTOCK( MAY, P4)        100.0000            0.000000
+                      MAXSTOCK( MAY, P5)        100.0000            0.000000
+                      MAXSTOCK( MAY, P6)        100.0000            0.000000
+                      MAXSTOCK( MAY, P7)        100.0000            0.000000
+                      MAXSTOCK( JUN, P1)        100.0000            0.000000
+                      MAXSTOCK( JUN, P2)        100.0000            0.000000
+                      MAXSTOCK( JUN, P3)        100.0000            0.000000
+                      MAXSTOCK( JUN, P4)        100.0000            0.000000
+                      MAXSTOCK( JUN, P5)        100.0000            0.000000
+                      MAXSTOCK( JUN, P6)        100.0000            0.000000
+                      MAXSTOCK( JUN, P7)        100.0000            0.000000
+                    COSTESTOCK( ENE, P1)       0.5000000            0.000000
+                    COSTESTOCK( ENE, P2)       0.5000000            0.000000
+                    COSTESTOCK( ENE, P3)       0.5000000            0.000000
+                    COSTESTOCK( ENE, P4)       0.5000000            0.000000
+                    COSTESTOCK( ENE, P5)       0.5000000            0.000000
+                    COSTESTOCK( ENE, P6)       0.5000000            0.000000
+                    COSTESTOCK( ENE, P7)       0.5000000            0.000000
+                    COSTESTOCK( FEB, P1)       0.5000000            0.000000
+                    COSTESTOCK( FEB, P2)       0.5000000            0.000000
+                    COSTESTOCK( FEB, P3)       0.5000000            0.000000
+                    COSTESTOCK( FEB, P4)       0.5000000            0.000000
+                    COSTESTOCK( FEB, P5)       0.5000000            0.000000
+                    COSTESTOCK( FEB, P6)       0.5000000            0.000000
+                    COSTESTOCK( FEB, P7)       0.5000000            0.000000
+                    COSTESTOCK( MAR, P1)       0.5000000            0.000000
+                    COSTESTOCK( MAR, P2)       0.5000000            0.000000
+                    COSTESTOCK( MAR, P3)       0.5000000            0.000000
+                    COSTESTOCK( MAR, P4)       0.5000000            0.000000
+                    COSTESTOCK( MAR, P5)       0.5000000            0.000000
+                    COSTESTOCK( MAR, P6)       0.5000000            0.000000
+                    COSTESTOCK( MAR, P7)       0.5000000            0.000000
+                    COSTESTOCK( ABR, P1)       0.5000000            0.000000
+                    COSTESTOCK( ABR, P2)       0.5000000            0.000000
+                    COSTESTOCK( ABR, P3)       0.5000000            0.000000
+                    COSTESTOCK( ABR, P4)       0.5000000            0.000000
+                    COSTESTOCK( ABR, P5)       0.5000000            0.000000
+                    COSTESTOCK( ABR, P6)       0.5000000            0.000000
+                    COSTESTOCK( ABR, P7)       0.5000000            0.000000
+                    COSTESTOCK( MAY, P1)       0.5000000            0.000000
+                    COSTESTOCK( MAY, P2)       0.5000000            0.000000
+                    COSTESTOCK( MAY, P3)       0.5000000            0.000000
+                    COSTESTOCK( MAY, P4)       0.5000000            0.000000
+                    COSTESTOCK( MAY, P5)       0.5000000            0.000000
+                    COSTESTOCK( MAY, P6)       0.5000000            0.000000
+                    COSTESTOCK( MAY, P7)       0.5000000            0.000000
+                    COSTESTOCK( JUN, P1)       0.5000000            0.000000
+                    COSTESTOCK( JUN, P2)       0.5000000            0.000000
+                    COSTESTOCK( JUN, P3)       0.5000000            0.000000
+                    COSTESTOCK( JUN, P4)       0.5000000            0.000000
+                    COSTESTOCK( JUN, P5)       0.5000000            0.000000
+                    COSTESTOCK( JUN, P6)       0.5000000            0.000000
+                    COSTESTOCK( JUN, P7)       0.5000000            0.000000
+          HRSDISPMAQUINA( ENE, COTADORA)        384.0000            0.000000
+        HRSDISPMAQUINA( ENE, FRESADORAV)        384.0000            0.000000
+        HRSDISPMAQUINA( ENE, FRESADORAH)        384.0000            0.000000
+           HRSDISPMAQUINA( ENE, TALADRO)        384.0000            0.000000
+         HRSDISPMAQUINA( ENE, ALISADORA)        384.0000            0.000000
+          HRSDISPMAQUINA( FEB, COTADORA)        384.0000            0.000000
+        HRSDISPMAQUINA( FEB, FRESADORAV)        384.0000            0.000000
+        HRSDISPMAQUINA( FEB, FRESADORAH)        384.0000            0.000000
+           HRSDISPMAQUINA( FEB, TALADRO)        384.0000            0.000000
+         HRSDISPMAQUINA( FEB, ALISADORA)        384.0000            0.000000
+          HRSDISPMAQUINA( MAR, COTADORA)        384.0000            0.000000
+        HRSDISPMAQUINA( MAR, FRESADORAV)        384.0000            0.000000
+        HRSDISPMAQUINA( MAR, FRESADORAH)        384.0000            0.000000
+           HRSDISPMAQUINA( MAR, TALADRO)        384.0000            0.000000
+         HRSDISPMAQUINA( MAR, ALISADORA)        384.0000            0.000000
+          HRSDISPMAQUINA( ABR, COTADORA)        384.0000            0.000000
+        HRSDISPMAQUINA( ABR, FRESADORAV)        384.0000            0.000000
+        HRSDISPMAQUINA( ABR, FRESADORAH)        384.0000            0.000000
+           HRSDISPMAQUINA( ABR, TALADRO)        384.0000            0.000000
+         HRSDISPMAQUINA( ABR, ALISADORA)        384.0000            0.000000
+          HRSDISPMAQUINA( MAY, COTADORA)        384.0000            0.000000
+        HRSDISPMAQUINA( MAY, FRESADORAV)        384.0000            0.000000
+        HRSDISPMAQUINA( MAY, FRESADORAH)        384.0000            0.000000
+           HRSDISPMAQUINA( MAY, TALADRO)        384.0000            0.000000
+         HRSDISPMAQUINA( MAY, ALISADORA)        384.0000            0.000000
+          HRSDISPMAQUINA( JUN, COTADORA)        384.0000            0.000000
+        HRSDISPMAQUINA( JUN, FRESADORAV)        384.0000            0.000000
+        HRSDISPMAQUINA( JUN, FRESADORAH)        384.0000            0.000000
+           HRSDISPMAQUINA( JUN, TALADRO)        384.0000            0.000000
+         HRSDISPMAQUINA( JUN, ALISADORA)        384.0000            0.000000
+            MAQUINASDISP( ENE, COTADORA)        4.000000            0.000000
+          MAQUINASDISP( ENE, FRESADORAV)        2.000000            0.000000
+          MAQUINASDISP( ENE, FRESADORAH)        3.000000            0.000000
+             MAQUINASDISP( ENE, TALADRO)        1.000000            0.000000
+           MAQUINASDISP( ENE, ALISADORA)        1.000000            0.000000
+            MAQUINASDISP( FEB, COTADORA)        4.000000            0.000000
+          MAQUINASDISP( FEB, FRESADORAV)        2.000000            0.000000
+          MAQUINASDISP( FEB, FRESADORAH)        3.000000            0.000000
+             MAQUINASDISP( FEB, TALADRO)        1.000000            0.000000
+           MAQUINASDISP( FEB, ALISADORA)        1.000000            0.000000
+            MAQUINASDISP( MAR, COTADORA)        4.000000            0.000000
+          MAQUINASDISP( MAR, FRESADORAV)        2.000000            0.000000
+          MAQUINASDISP( MAR, FRESADORAH)        3.000000            0.000000
+             MAQUINASDISP( MAR, TALADRO)        1.000000            0.000000
+           MAQUINASDISP( MAR, ALISADORA)        1.000000            0.000000
+            MAQUINASDISP( ABR, COTADORA)        4.000000            0.000000
+          MAQUINASDISP( ABR, FRESADORAV)        2.000000            0.000000
+          MAQUINASDISP( ABR, FRESADORAH)        3.000000            0.000000
+             MAQUINASDISP( ABR, TALADRO)        1.000000            0.000000
+           MAQUINASDISP( ABR, ALISADORA)        1.000000            0.000000
+            MAQUINASDISP( MAY, COTADORA)        4.000000            0.000000
+          MAQUINASDISP( MAY, FRESADORAV)        2.000000            0.000000
+          MAQUINASDISP( MAY, FRESADORAH)        3.000000            0.000000
+             MAQUINASDISP( MAY, TALADRO)        1.000000            0.000000
+           MAQUINASDISP( MAY, ALISADORA)        1.000000            0.000000
+            MAQUINASDISP( JUN, COTADORA)        4.000000            0.000000
+          MAQUINASDISP( JUN, FRESADORAV)        2.000000            0.000000
+          MAQUINASDISP( JUN, FRESADORAH)        3.000000            0.000000
+             MAQUINASDISP( JUN, TALADRO)        1.000000            0.000000
+           MAQUINASDISP( JUN, ALISADORA)        1.000000            0.000000
+            MAQUINASMANT( ENE, COTADORA)        0.000000            1212.632
+          MAQUINASMANT( ENE, FRESADORAV)        0.000000            5355.789
+          MAQUINASMANT( ENE, FRESADORAH)        0.000000            3840.000
+             MAQUINASMANT( ENE, TALADRO)        0.000000            38602.11
+           MAQUINASMANT( ENE, ALISADORA)        0.000000            0.000000
+            MAQUINASMANT( FEB, COTADORA)        0.000000            1212.632
+          MAQUINASMANT( FEB, FRESADORAV)        1.000000            5355.789
+          MAQUINASMANT( FEB, FRESADORAH)        0.000000            3840.000
+             MAQUINASMANT( FEB, TALADRO)        0.000000            38602.11
+           MAQUINASMANT( FEB, ALISADORA)        0.000000            0.000000
+            MAQUINASMANT( MAR, COTADORA)        0.000000            1212.632
+          MAQUINASMANT( MAR, FRESADORAV)        1.000000            5355.789
+          MAQUINASMANT( MAR, FRESADORAH)        0.000000            3840.000
+             MAQUINASMANT( MAR, TALADRO)        0.000000            38602.11
+           MAQUINASMANT( MAR, ALISADORA)        0.000000            0.000000
+            MAQUINASMANT( ABR, COTADORA)        2.000000            0.000000
+          MAQUINASMANT( ABR, FRESADORAV)        0.000000            5760.000
+          MAQUINASMANT( ABR, FRESADORAH)        3.000000            3469.474
+             MAQUINASMANT( ABR, TALADRO)        1.000000            51402.11
+           MAQUINASMANT( ABR, ALISADORA)        1.000000            29642.11
+            MAQUINASMANT( MAY, COTADORA)        0.000000            1212.632
+          MAQUINASMANT( MAY, FRESADORAV)        0.000000            5355.789
+          MAQUINASMANT( MAY, FRESADORAH)        0.000000            3840.000
+             MAQUINASMANT( MAY, TALADRO)        0.000000            38602.11
+           MAQUINASMANT( MAY, ALISADORA)        0.000000            0.000000
+            MAQUINASMANT( JUN, COTADORA)        0.000000            1212.632
+          MAQUINASMANT( JUN, FRESADORAV)        0.000000            5355.789
+          MAQUINASMANT( JUN, FRESADORAH)        0.000000            3840.000
+             MAQUINASMANT( JUN, TALADRO)        0.000000            38602.11
+           MAQUINASMANT( JUN, ALISADORA)        0.000000            0.000000
+            HRSNECESARIAS( COTADORA, P1)       0.5000000            0.000000
+            HRSNECESARIAS( COTADORA, P2)       0.7000000            0.000000
+            HRSNECESARIAS( COTADORA, P3)        0.000000            0.000000
+            HRSNECESARIAS( COTADORA, P4)        0.000000            0.000000
+            HRSNECESARIAS( COTADORA, P5)       0.3000000            0.000000
+            HRSNECESARIAS( COTADORA, P6)       0.2000000            0.000000
+            HRSNECESARIAS( COTADORA, P7)       0.5000000            0.000000
+          HRSNECESARIAS( FRESADORAV, P1)       0.1000000            0.000000
+          HRSNECESARIAS( FRESADORAV, P2)       0.2000000            0.000000
+          HRSNECESARIAS( FRESADORAV, P3)        0.000000            0.000000
+          HRSNECESARIAS( FRESADORAV, P4)       0.3000000            0.000000
+          HRSNECESARIAS( FRESADORAV, P5)        0.000000            0.000000
+          HRSNECESARIAS( FRESADORAV, P6)       0.6000000            0.000000
+          HRSNECESARIAS( FRESADORAV, P7)        0.000000            0.000000
+          HRSNECESARIAS( FRESADORAH, P1)       0.2000000            0.000000
+          HRSNECESARIAS( FRESADORAH, P2)        0.000000            0.000000
+          HRSNECESARIAS( FRESADORAH, P3)       0.8000000            0.000000
+          HRSNECESARIAS( FRESADORAH, P4)        0.000000            0.000000
+          HRSNECESARIAS( FRESADORAH, P5)        0.000000            0.000000
+          HRSNECESARIAS( FRESADORAH, P6)        0.000000            0.000000
+          HRSNECESARIAS( FRESADORAH, P7)       0.6000000            0.000000
+             HRSNECESARIAS( TALADRO, P1)       0.5000000E-01        0.000000
+             HRSNECESARIAS( TALADRO, P2)       0.3000000E-01        0.000000
+             HRSNECESARIAS( TALADRO, P3)        0.000000            0.000000
+             HRSNECESARIAS( TALADRO, P4)       0.7000000E-01        0.000000
+             HRSNECESARIAS( TALADRO, P5)       0.1000000            0.000000
+             HRSNECESARIAS( TALADRO, P6)        0.000000            0.000000
+             HRSNECESARIAS( TALADRO, P7)       0.8000000E-01        0.000000
+           HRSNECESARIAS( ALISADORA, P1)        0.000000            0.000000
+           HRSNECESARIAS( ALISADORA, P2)        0.000000            0.000000
+           HRSNECESARIAS( ALISADORA, P3)       0.1000000E-01        0.000000
+           HRSNECESARIAS( ALISADORA, P4)        0.000000            0.000000
+           HRSNECESARIAS( ALISADORA, P5)       0.5000000E-01        0.000000
+           HRSNECESARIAS( ALISADORA, P6)        0.000000            0.000000
+           HRSNECESARIAS( ALISADORA, P7)       0.5000000E-01        0.000000
+
+                                     Row    Slack or Surplus      Dual Price
+                         BENEFICIO_TOTAL        325411.6            1.000000
+                                       2        0.000000            0.000000
+                                       3        0.000000            0.000000
+                                       4        0.000000            0.000000
+                                       5        0.000000            0.000000
+                                       6        0.000000            0.000000
+                                       7        0.000000            10.00000
+                ALMACENAMIENTO( ENE, P1)        100.0000            0.000000
+                                       9        0.000000            8.015789
+                ALMACENAMIENTO( ENE, P2)        100.0000            0.000000
+                                      11        0.000000            8.000000
+                ALMACENAMIENTO( ENE, P3)        100.0000            0.000000
+                                      13        0.000000            11.22105
+                ALMACENAMIENTO( ENE, P4)        100.0000            0.000000
+                                      15        0.000000            11.00000
+                ALMACENAMIENTO( ENE, P5)        100.0000            0.000000
+                                      17        0.000000            9.000000
+                ALMACENAMIENTO( ENE, P6)        100.0000            0.000000
+                                      19        0.000000            15.62105
+                ALMACENAMIENTO( ENE, P7)        100.0000            0.000000
+                                      21        0.000000            10.00000
+                ALMACENAMIENTO( FEB, P1)        100.0000            0.000000
+                                      23        0.000000            6.015789
+                ALMACENAMIENTO( FEB, P2)        100.0000            0.000000
+                                      25        0.000000            8.000000
+                ALMACENAMIENTO( FEB, P3)        100.0000            0.000000
+                                      27        0.000000            11.22105
+                ALMACENAMIENTO( FEB, P4)        100.0000            0.000000
+                                      29        0.000000            11.00000
+                ALMACENAMIENTO( FEB, P5)        100.0000            0.000000
+                                      31        0.000000            9.000000
+                ALMACENAMIENTO( FEB, P6)        100.0000            0.000000
+                                      33        0.000000            15.62105
+                ALMACENAMIENTO( FEB, P7)        100.0000            0.000000
+                                      35        0.000000            10.00000
+                ALMACENAMIENTO( MAR, P1)        100.0000            0.000000
+                                      37        0.000000            6.515789
+                ALMACENAMIENTO( MAR, P2)        100.0000            0.000000
+                                      39        0.000000            8.000000
+                ALMACENAMIENTO( MAR, P3)        100.0000            0.000000
+                                      41        0.000000            11.22105
+                ALMACENAMIENTO( MAR, P4)        100.0000            0.000000
+                                      43        0.000000            11.00000
+                ALMACENAMIENTO( MAR, P5)        100.0000            0.000000
+                                      45        0.000000            9.000000
+                ALMACENAMIENTO( MAR, P6)        100.0000            0.000000
+                                      47        0.000000            14.12105
+                ALMACENAMIENTO( MAR, P7)        100.0000            0.000000
+                                      49        0.000000            10.00000
+                ALMACENAMIENTO( ABR, P1)        100.0000            0.000000
+                                      51        0.000000            7.015789
+                ALMACENAMIENTO( ABR, P2)        100.0000            0.000000
+                                      53        0.000000            8.000000
+                ALMACENAMIENTO( ABR, P3)        100.0000            0.000000
+                                      55        0.000000            11.72105
+                ALMACENAMIENTO( ABR, P4)        100.0000            0.000000
+                                      57        0.000000            11.00000
+                ALMACENAMIENTO( ABR, P5)        100.0000            0.000000
+                                      59        0.000000            9.000000
+                ALMACENAMIENTO( ABR, P6)        100.0000            0.000000
+                                      61        0.000000            14.62105
+                ALMACENAMIENTO( ABR, P7)        100.0000            0.000000
+                                      63        0.000000            10.00000
+                ALMACENAMIENTO( MAY, P1)        100.0000            0.000000
+                                      65        0.000000            7.515789
+                ALMACENAMIENTO( MAY, P2)        100.0000            0.000000
+                                      67        0.000000            8.000000
+                ALMACENAMIENTO( MAY, P3)        100.0000            0.000000
+                                      69        0.000000            10.72105
+                ALMACENAMIENTO( MAY, P4)        100.0000            0.000000
+                                      71        0.000000            11.00000
+                ALMACENAMIENTO( MAY, P5)        100.0000            0.000000
+                                      73        0.000000            9.000000
+                ALMACENAMIENTO( MAY, P6)        100.0000            0.000000
+                                      75        0.000000            15.12105
+                ALMACENAMIENTO( MAY, P7)        100.0000            0.000000
+                                      77        0.000000            10.00000
+                ALMACENAMIENTO( JUN, P1)        50.00000            0.000000
+                                      79        0.000000            8.015789
+                ALMACENAMIENTO( JUN, P2)        50.00000            0.000000
+                                      81        0.000000            8.000000
+                ALMACENAMIENTO( JUN, P3)        50.00000            0.000000
+                                      83        0.000000            11.22105
+                ALMACENAMIENTO( JUN, P4)        50.00000            0.000000
+                                      85        0.000000            11.00000
+                ALMACENAMIENTO( JUN, P5)        50.00000            0.000000
+                                      87        0.000000            9.000000
+                ALMACENAMIENTO( JUN, P6)        50.00000            0.000000
+                                      89        0.000000            15.62105
+                ALMACENAMIENTO( JUN, P7)        50.00000            0.000000
+              PRODUCCION( ENE, COTADORA)        0.000000            3.157895
+            PRODUCCION( ENE, FRESADORAV)        0.000000            13.94737
+            PRODUCCION( ENE, FRESADORAH)        0.000000            10.00000
+               PRODUCCION( ENE, TALADRO)        0.000000            100.5263
+             PRODUCCION( ENE, ALISADORA)        188.7158            0.000000
+              PRODUCCION( FEB, COTADORA)        0.000000            3.157895
+            PRODUCCION( FEB, FRESADORAV)        0.000000            13.94737
+            PRODUCCION( FEB, FRESADORAH)        0.000000            10.00000
+               PRODUCCION( FEB, TALADRO)        0.000000            100.5263
+             PRODUCCION( FEB, ALISADORA)        199.8316            0.000000
+              PRODUCCION( MAR, COTADORA)        0.000000            3.157895
+            PRODUCCION( MAR, FRESADORAV)        0.000000            13.94737
+            PRODUCCION( MAR, FRESADORAH)        0.000000            10.00000
+               PRODUCCION( MAR, TALADRO)        0.000000            100.5263
+             PRODUCCION( MAR, ALISADORA)        199.8316            0.000000
+              PRODUCCION( ABR, COTADORA)        512.0000            0.000000
+            PRODUCCION( ABR, FRESADORAV)        0.000000            15.00000
+            PRODUCCION( ABR, FRESADORAH)        0.000000            9.035088
+               PRODUCCION( ABR, TALADRO)        0.000000            133.8596
+             PRODUCCION( ABR, ALISADORA)        0.000000            77.19298
+              PRODUCCION( MAY, COTADORA)        0.000000            3.157895
+            PRODUCCION( MAY, FRESADORAV)        0.000000            13.94737
+            PRODUCCION( MAY, FRESADORAH)        0.000000            10.00000
+               PRODUCCION( MAY, TALADRO)        0.000000            100.5263
+             PRODUCCION( MAY, ALISADORA)        188.7158            0.000000
+              PRODUCCION( JUN, COTADORA)        0.000000            3.157895
+            PRODUCCION( JUN, FRESADORAV)        0.000000            13.94737
+            PRODUCCION( JUN, FRESADORAH)        0.000000            10.00000
+               PRODUCCION( JUN, TALADRO)        0.000000            100.5263
+             PRODUCCION( JUN, ALISADORA)        188.9487            0.000000
+                        EXISTENCIAS( P1)        0.000000           -10.50000
+                        EXISTENCIAS( P2)        0.000000           -8.515789
+                        EXISTENCIAS( P3)        0.000000           -8.500000
+                        EXISTENCIAS( P4)        0.000000           -11.72105
+                        EXISTENCIAS( P5)        0.000000           -11.50000
+                        EXISTENCIAS( P6)        0.000000           -9.500000
+                        EXISTENCIAS( P7)        0.000000           -16.12105
+

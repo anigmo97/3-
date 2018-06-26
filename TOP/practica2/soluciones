@@ -1,0 +1,96 @@
+1) Del producto A se fabrican 36 unidades
+Del producto B se fabrican 45 (B1(5)+B2(40))
+Del producto C se fabrican 10 (C1(10)+C2(0))
+
+El coste total es 55464.00
+  Objective value:                              55464.00
+
+2)
+La maquina M1 es la única que no tiene capacidad no utilizada,
+M2 tiene 240 minutos,M3 54 minutos y M4 12 minutos
+CAP_M1        0.000000            
+CAP_M2        240.0000           
+CAP_M3        54.00000            
+CAP_M4        12.00000     
+
+3) Cambiamos la restricción de M1 ([CAP_M1] A*10 + B1*8 + C1*8 <= 510;)
+y calculamos:
+Anterior :   Objective value:                              55464.00
+Posterior:   Objective value:                              55426.50
+Podriamos reducir los costes en 37.5 unidades monetarias
+
+   Row    Slack or Surplus      Dual Price
+CAP_M1        0.000000            1.250000
+La holgura es igual a 0 (es cuello de botella) y el coste de oportunidad es 1,25 
+Dado que es cuello de botella el valor de la función objetivo cambiará
+Current        Allowable        Allowable
+Row              RHS         Increase         Decrease
+CAP_M1         480.0000         43.20000         10.66667
+La capacidad de la maquina 1 puede aumentar 43,2 minutos y disminuir 10,66, es decir, mientras estemos en el intervalo [469.33, 523.2]
+el coste de oportunidad se mantiene constante e igual a 1,25, la solucion optima cambia y el valor de la funcion objetivo cambia pero la podemos predecir en funcion del coste de oportunidad.
+Como si aumentamos 30 minutos tendriamos un valor de 510 y sabemos que estamos dentro del intervalo, podemos calcular que el valor de la funcion objetivo decrementará en 30 * 1,25 = 37,5 unidades monetarias 
+
+
+4) Cambiando la restricción de DEMANDA_B a:
+[DEMANDA_B] B1 + B2 >= 40; 
+y recalculando obtenemos:
+Anterior :   Objective value:                              55464.00
+Posterior:   Objective value:                              52614.00  
+Podriamos reducir los costes en 2850 unidades monetarias
+
+      Row    Slack or Surplus      Dual Price
+DEMANDA_B        0.000000           -570.0000
+La holgura es 0 ( es cuello de botella) y el coste de oportunidad es -570 
+                  Current        Allowable        Allowable
+    Row              RHS         Increase         Decrease
+DEMANDA_B         45.00000         1.333333         40.00000
+Podemos aumentar 1,333 unidades y disminuir 40 ,es decir, en el intervalo [5, 46,333] el coste de oportunidad sera constante (-570)
+Si la demanda fuera de 40 unidades, seguiríamos dentro del intervalo y podriamos calcular el cambio de valor de la funcion objetivo como:
+5 * -570 = -2850 um Los costes se reducirian en 2850 um
+
+5)Cambiamos la restricción de DEMANDA_C :
+[DEMANDA_C] C1 + C2 >=12;
+calculamos y obtenemos :
+Anterior :   Objective value:                              55464.00
+Posterior:   Objective value:                              57480.00
+Los costes aumentarian en 2016 unidades monetarias
+
+
+      Row    Slack or Surplus      Dual Price
+DEMANDA_C        0.000000           -714.0000
+la holgura es igual a 0 ( es cuello de botella) y el coste de oportunidad es -714.
+    Row              RHS         Increase         Decrease
+DEMANDA_C         10.00000         1.333333         10.00000
+Podemos incrementar el valor en 1,333 y disminuirlo en 10, es decir, tenemos que en el intervalo [0, 11,33 ] el coste de oportunidad sera constante.Como si la demanda aumenta mas d 2 unidades ya no estamos en el intervalo, el coste de oportunidad no es constante y no podemos calcular el valor de la funcion objetivo, tendríamos que reformular el modelo y resolverlo.
+
+6)Para fabricar 5 unidades del producto 2, necesitariamos 10 minutos en la maquina M1,60 en M2 y 30 en M3.
+Con nuestro modelo tenemos disponibles:
+CAP_M1        0.000000            
+CAP_M2        240.0000           
+CAP_M3        54.00000            
+Como necesitamos 10 minutos en la maquina M1, habra que producir 2 productos ( B o C o uno de cada) en la segunda linea de este .
+La diferencia de coste de fabricar en B1 a B2 es de 10 um
+La diferencia de coste de fabricar en C1 a C2 es de 108 um
+La mejor opcion sería pues, producir dos productos B en la linea 2,
+así perderiamos 20 um respecto al anterior modelo y ganariamos 125 um con la venta de los 5 productos D, teniendo así una ganancia de 105 um
+Por la cantidad disponible de minutos en las máquinas, es posible realizar el cambio.
+Segun nuestro antiguo modelo, debiamos producir 5 en B1 por lo que es posible producir solo 3 en B1.    
+B1        5.000000 
+A vista de esto, a priori, obviamente tendriamos mas gastos pero el beneficio nos compensaria, la empresa debe fabricar las 5 unidades del producto D          
+Cambiando el modelo matemático, vemos que los gastos se incrementan en gran medida :   
+Objective value:                              59596.50
+Objective value:                              55464.00
+
+Aumento de gastos: 4132.50 um
+La produccion de 5 productos D nos cuesta (5*2*40 + 5*12*50 + 5*6*24)=
+4120.50 um que nos aportaran 4245.50 de ingresos dandonos 125 um de beneficio.
+Frente a nuestra aproximacion, en lugar de aumentar los gastos en 20 um , solo aumentó en 12.50
+MODELO NUEVO :
+A        36.00000            0.000000
+B1        3.750000            0.000000
+B2        41.25000            0.000000
+C1        10.00000            0.000000
+C2        0.000000            98.00000
+D        5.000000            0.000000
+
+Como vemos, no son numeros enteros, lo que no es posible en la realidad, este modelo sigue la dinámica de nuestro pronostico pasando productos de B1 a B2, concluyendo que en efecto, la empresa debe fabricar D.

@@ -1,0 +1,5 @@
+!Mi = numero de unidades de maquina i (i= 1,2,3) a fabricar ;
+MAX= 50*M1	+25*M2+20*M3;
+
+[CAP_MEC] 4*M1 +1*M2+ 2*M3 <= 160;
+[CAP_MON] 6*M1+1*M2+2*M3 <= 180;

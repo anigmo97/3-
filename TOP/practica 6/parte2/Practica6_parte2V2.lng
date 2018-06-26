@@ -1,0 +1,113 @@
+
+SETS:
+
+!Definición de sets primitivos;
+Periodo /Ene, Feb, Mar, Abr, May, Jun/ ;
+! Definimos el atributo Mantenimiento_programado;
+Maquina /Cotadora, FresadoraV, FresadoraH, Taladro, Alisadora/: Mantenimiento_programado;
+Producto /P1, P2, P3, P4, P5, P6, P7/: Beneficio;
+
+!Fabricación de sets derivados;
+Fabricacion (Periodo, Producto): UProducidas, UVendidas, UStock, MaxStock, CosteStock;
+CapMaquinas (Periodo, Maquina): HrsDispMaquina, MaquinasDisp, MaquinasMant;
+HrsProduccion (Maquina, Producto): HrsNecesarias;
+
+ENDSETS
+
+DATA:
+
+MaquinasDisp= 4 2 3 1 1
+              4 2 3 1 1
+              4 2 3 1 1
+              4 2 3 1 1
+              4 2 3 1 1
+              4 2 3 1 1;
+
+! Cambiamos el mantenimiento prefijado;
+! Hay 4 cortadoras -> 2 deben tener mantenimiento
+  Hay 2 fresadorasV -> 2 deben tener mantenimiento
+  Hay 3 fresadorasH -> 3 deben tener mantenimiento
+  Hay 1 taladros -> 1 deben tener mantenimiento
+  Hay 1 alisadoras -> 1 deben tener mantenimiento
+ ;
+Mantenimiento_programado= 2 2 3 1 1;
+
+Beneficio = 10 6 8 4 11 9 3;
+
+HrsNecesarias= 0.5   0.7   0     0     0.3   0.2   0.5
+               0.1   0.2   0     0.3   0     0.6   0
+               0.2   0     0.8   0     0     0     0.6
+               0.05  0.03  0     0.07  0.1   0     0.08
+               0     0     0.01  0     0.05  0     0.05;
+
+MaxStock= 100  100  100  100  100  100  100
+          100  100  100  100  100  100  100
+          100  100  100  100  100  100  100
+          100  100  100  100  100  100  100
+          100  100  100  100  100  100  100
+          100  100  100  100  100  100  100;
+
+CosteStock= 0.5  0.5  0.5  0.5  0.5  0.5  0.5
+            0.5  0.5  0.5  0.5  0.5  0.5  0.5
+            0.5  0.5  0.5  0.5  0.5  0.5  0.5
+            0.5  0.5  0.5  0.5  0.5  0.5  0.5
+            0.5  0.5  0.5  0.5  0.5  0.5  0.5
+            0.5  0.5  0.5  0.5  0.5  0.5  0.5;
+
+HrsDispMaquina= 384  384  384  384  384
+                384  384  384  384  384
+                384  384  384  384  384
+                384  384  384  384  384
+                384  384  384  384  384
+                384  384  384  384  384;
+
+ENDDATA
+
+!Maximizar el beneficio;
+!Sumamos todos los periodos para todos los productos         Beneficios_Totales - Gastos_almacenamiento_totales;
+[Beneficio_Total]MAX = @SUM(Fabricacion(i,j): (Beneficio(j) * UVendidas(i,j) - CosteStock(i,j) * UStock(i,j)));
+
+
+
+
+!Restricción de mantenimiento
+Para cada tipo de maquina, la suma de de sus mantenimientos en todos los periodos debe ser los mantenimientos programados;
+@FOR(Maquina(i) | i #EQ# @INDEX(Maquina,Cortadora) : @SUM(Periodo(y): MaquinasMant(y,i)) = 2);
+@FOR(Maquina(i) | i #NE# @INDEX(Maquina,Cortadora) : @SUM(Periodo(y): MaquinasMant(y,i)) = Mantenimiento_programado(i));
+!OPCION 2 MANTENIMIENTO
+@FOR(Maquina(x):[Mantenimiento]@SUM(Periodo(y): MaquinasMant(y,x)) = Mantenimiento_programado(x);
+!);
+
+
+
+
+!Restricciones de equilibrio;
+@FOR(Fabricacion(m,p):
+! Uds. Vendidas mes t + Uds. Stock mes t = Uds. Producidas mes t + Uds. Stock mes (t-1);
+! en el primer mes tenemos un stock de 0;
+![Equilibrio]UVendidas(m,p) + UStock(m,p) = UProducidas(m,p) + @IF(m#EQ#1,0,UStock(m-1,p));
+! OPCION 2 EQUILIBRIO;
+@FOR(Fabricacion(m,p) | m #EQ# @INDEX(Periodo,Ene) : UVendidas(m,p) + UStock(m,p) = UProducidas(m,p));
+@FOR(Fabricacion(m,p) | m #NE# @INDEX(Periodo,Ene) : UVendidas(m,p) + UStock(m,p) = UProducidas(m,p) + UStock(m-1,p));
+
+
+
+!Capacidad de almacenamiento;
+! En cada periodo se almacena menos que el maximo ;
+[Almacenamiento]UStock(m,p) <= MaxStock(m,p);
+);
+
+!Para cada máquina,en cada periodo las horas utilizadas deben ser <= horas disponibles;     
+! Horas produccion < = num_maquinas_de_ese_tipo_en_ese_periodo * horas_disponibles;
+@FOR(CapMaquinas(b,c):
+!Mantenimiento de las máquinas son enteros;
+[Mantenimiento_requerido]@GIN(MaquinasMant(b,c));
+!Capacidad de producción y disponibilidad de Máquina;
+[Produccion]@SUM(Producto(a): HrsNecesarias(c,a) * UProducidas(b,a)) <= HrsDispMaquina(b,c) * (MaquinasDisp(b,c) - MaquinasMant(b,c));
+);
+
+@FOR(Producto(z):
+!Existencias en el mes de Junio;
+! ¿ poner >= para dar mayor flexibilidad ?;
+[Existencias]UStock(6,z) >= 50;
+);
